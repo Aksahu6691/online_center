@@ -15,7 +15,7 @@ const CustomCard = (props: ICustomCardProp) => {
 
 	return (
 		<Card
-			className={cn('bg-secondary', className)}
+			className={cn('bg-white', className)}
 			shadow={shadow}
 			onPress={onPress}
 			isPressable={isPressable}

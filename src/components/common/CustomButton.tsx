@@ -12,8 +12,9 @@ interface ICustomButtonProps {
 	StartIcon?: React.ReactNode;
 	EndIcon?: React.ReactNode;
 	isDisabled?: boolean;
-	btnColor?: 'primary' | 'secondary' | 'success' | 'warning';
+	btnColor?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 	buttonRadius?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+	size?: 'sm' | 'md' | 'lg';
 }
 
 const CustomButton = (props: ICustomButtonProps) => {
@@ -29,7 +30,8 @@ const CustomButton = (props: ICustomButtonProps) => {
 		isLoading = false,
 		isDisabled = false,
 		btnColor = 'primary',
-		buttonRadius
+		buttonRadius,
+		size
 	} = props;
 
 	return (
@@ -45,6 +47,7 @@ const CustomButton = (props: ICustomButtonProps) => {
 			endContent={EndIcon}
 			color={btnColor}
 			radius={buttonRadius}
+			size={size}
 		>
 			{!isLoading && children}
 		</Button>

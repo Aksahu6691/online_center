@@ -6,7 +6,10 @@ const colors = {
 	gray: '#808080',
 	danger: '#FF0D0D',
 	black: '#000000',
-	white: '#ffffff'
+	white: '#ffffff',
+	'night-black': '#111111',
+	'pink-purple': '#DC8CDB',
+	'shadow-grey': '#777777'
 };
 
 export default colors;
