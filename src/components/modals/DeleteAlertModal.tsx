@@ -1,7 +1,7 @@
 import { ModalBody, ModalFooter } from '@nextui-org/react';
-import { DeleteIcon } from '../../assets/icon';
-import CustomModalWrapper from '../CustomModalWrapper';
-import CustomButton from '../CustomButton';
+import CustomModalWrapper from '../common/CustomModalWrapper';
+import { DeleteIcon } from '@/assets/icons';
+import CustomButton from '../common/CustomButton';
 
 interface IDeleteAlertModalProps {
 	isOpen: boolean;
