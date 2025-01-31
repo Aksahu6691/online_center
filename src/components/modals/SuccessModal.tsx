@@ -1,6 +1,6 @@
 import { ModalBody } from '@nextui-org/react';
 import CustomModalWrapper from '../common/CustomModalWrapper';
-import { SuccessIcon } from '../../assets/icon';
+import { SuccessIcon } from '@/assets/icons';
 
 interface ISuccessModalProps {
 	isOpen: boolean;

@@ -3,8 +3,8 @@ import CustomCard from './common/CustomCard';
 import CustomInput from './common/CustomInput';
 import CustomButton from './common/CustomButton';
 import CustomTextarea from './common/CustomTextarea';
-import { IContactFormSchema } from '@/types/contactForm.typs';
 import { ValidateContactForm } from '@/utils/validationSchema';
+import { IContactFormSchema } from '@/types/schema.type';
 
 const ContactForm = () => {
 	const initialValues: IContactFormSchema = {

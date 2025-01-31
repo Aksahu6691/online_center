@@ -1,6 +1,6 @@
 import { ModalBody } from '@nextui-org/react';
-import { WarningIcon } from '../../assets/icon';
 import CustomModalWrapper from '../common/CustomModalWrapper';
+import { WarningIcon } from '@/assets/icons';
 
 interface IWarningModalProps {
 	isOpen: boolean;

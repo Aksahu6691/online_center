@@ -3,8 +3,8 @@ import { Formik, FormikProps } from 'formik';
 import CustomInput from './common/CustomInput';
 import useAppNavigate from '@/hooks/useAppNavigate';
 import { ValidateLoginForm } from '@/utils/validationSchema';
-import { ILoginFormSchema } from '@/types/loginForm.type';
 import CustomButton from './common/CustomButton';
+import { ILoginFormSchema } from '@/types/schema.type';
 
 const LoginForm = () => {
 	const navigation = useAppNavigate();

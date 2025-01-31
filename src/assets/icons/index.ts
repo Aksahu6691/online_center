@@ -5,5 +5,17 @@ import DeleteIcon from './deleteIcon.svg';
 import DeleteIconSmall from './deleteIconSmall.svg';
 import CloudUploadIcon from './cloudUpload.svg';
 import SearchIcon from './search.svg';
+import SuccessIcon from './successIcon.svg';
+import WarningIcon from './warningIcon.svg';
 
-export { NotFoundIcon, FileSelectIcon, AttachmentIcon, DeleteIcon, DeleteIconSmall, CloudUploadIcon, SearchIcon };
+export {
+	NotFoundIcon,
+	FileSelectIcon,
+	AttachmentIcon,
+	DeleteIcon,
+	DeleteIconSmall,
+	CloudUploadIcon,
+	SearchIcon,
+	SuccessIcon,
+	WarningIcon
+};
