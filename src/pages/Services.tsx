@@ -4,6 +4,24 @@ import ScreenWrapper from '@/components/ScreenWrapper';
 import { services } from '@/store/data';
 
 const Services = () => {
+	const renderServiceCard = () => {
+		if (!services) return;
+
+		return services.map(service => (
+			<CustomCard
+				key={service.id}
+				className="h-72 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg p-3"
+				shadow="sm"
+			>
+				<div className="flex flex-col items-center justify-center gap-3 h-full p-5 text-center">
+					<img src={service.image} alt="error" />
+					<h3 className="text-xl font-bold mb-4">{service.title}</h3>
+					<p className="text-sm text-slate-gray">{service.description}</p>
+				</div>
+			</CustomCard>
+		));
+	};
+
 	return (
 		<ScreenWrapper>
 			<CustomBreadcrumb title="Our Service" description="What We Do" />
@@ -16,19 +34,7 @@ const Services = () => {
 					</h2>
 				</div>
 				<div className="grid grid-col-2 lg:grid-cols-2 2xl:grid-cols-3 4xl:grid-cols-4 gap-6">
-					{services.map(service => (
-						<CustomCard
-							key={service.id}
-							className="h-72 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg p-3"
-							shadow="sm"
-						>
-							<div className="flex flex-col items-center justify-center gap-3 h-full p-5 text-center">
-								<img src={service.image} alt="error" />
-								<h3 className="text-xl font-bold mb-4">{service.title}</h3>
-								<p className="text-sm text-slate-gray">{service.description}</p>
-							</div>
-						</CustomCard>
-					))}
+					{renderServiceCard()}
 				</div>
 			</section>
 		</ScreenWrapper>

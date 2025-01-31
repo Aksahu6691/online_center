@@ -6,15 +6,15 @@ import CustomTextarea from './common/CustomTextarea';
 import { ValidateContactForm } from '@/utils/validationSchema';
 import { IContactFormSchema } from '@/types/schema.type';
 
-const ContactForm = () => {
+interface IContactFormProps {
+	onSubmit: (values: IContactFormSchema) => void;
+}
+
+const ContactForm = (props: IContactFormProps) => {
 	const initialValues: IContactFormSchema = {
 		name: '',
 		email: '',
 		description: ''
-	};
-
-	const handelSubmitValue = (values: IContactFormSchema) => {
-		console.log('values', values);
 	};
 
 	return (
@@ -28,7 +28,7 @@ const ContactForm = () => {
 				you as soon as possible!
 			</p>
 
-			<Formik initialValues={initialValues} onSubmit={handelSubmitValue} validationSchema={ValidateContactForm}>
+			<Formik initialValues={initialValues} onSubmit={props.onSubmit} validationSchema={ValidateContactForm}>
 				{({ values, handleBlur, handleChange, touched, errors, handleSubmit }: FormikProps<IContactFormSchema>) => (
 					<form onSubmit={handleSubmit} className="flex flex-col gap-5">
 						<CustomInput
@@ -80,7 +80,7 @@ const ContactForm = () => {
 						/>
 
 						{/* Submit Button */}
-						<CustomButton size="md" buttonRadius="sm" className={'bg-gradient-custom'}>
+						<CustomButton type="submit" size="md" buttonRadius="sm" className={'bg-gradient-custom'}>
 							Send Message
 						</CustomButton>
 					</form>

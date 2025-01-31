@@ -1,8 +1,13 @@
 import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import ContactForm from '@/components/ContactForm';
 import ScreenWrapper from '@/components/ScreenWrapper';
+import { IContactFormSchema } from '@/types/schema.type';
 
 const Contact = () => {
+	const handelSubmit = (values: IContactFormSchema) => {
+		console.log('values', values);
+	};
+
 	return (
 		<ScreenWrapper>
 			<CustomBreadcrumb title="Contact Us" description="Say Hello EduWell" />
@@ -16,7 +21,7 @@ const Contact = () => {
 				</div>
 				<div className="flex items-center justify-center">
 					<div className="w-full lg:w-1/2">
-						<ContactForm />
+						<ContactForm onSubmit={handelSubmit} />
 					</div>
 				</div>
 			</section>
