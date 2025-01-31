@@ -15,3 +15,11 @@ export interface ICustomDropdownMenuItem {
 	href?: string;
 	isReadOnly?: boolean;
 }
+
+export interface ResponsiveConfig {
+	[key: string]: {
+		breakpoint: { max: number; min: number };
+		items: number;
+		slidesToSlide: number;
+	};
+}

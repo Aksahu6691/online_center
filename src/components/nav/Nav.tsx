@@ -1,10 +1,11 @@
 import { LogoImage } from '@/assets/images';
 import CustomAvatar from '../common/CustomAvatar';
 import CustomSearchInput from '../common/CustomSearchInput';
-import { APP_ROUTES, users } from '@/utils/constants';
+import { APP_ROUTES } from '@/utils/constants';
 import { SearchIcon } from '@/assets/icons';
 import { Link, useLocation } from 'react-router';
 import { cn } from '@nextui-org/react';
+import { users } from '@/store/data';
 
 const Nav = () => {
 	const location = useLocation();

@@ -1,12 +1,17 @@
-import PopularServices from '@/components/PopularServices';
-import WelcomeSection from '@/components/WelcomeSection';
+import FooterSection from '@/components/pageSections/FooterSection';
+import PopularServices from '@/components/pageSections/PopularServices';
+import TestimonialSection from '@/components/pageSections/TestimonialSection';
+import WelcomeSection from '@/components/pageSections/WelcomeSection';
+import ScreenWrapper from '@/components/ScreenWrapper';
 
 const Home = () => {
 	return (
-		<div>
+		<ScreenWrapper>
 			<WelcomeSection />
 			<PopularServices />
-		</div>
+			<TestimonialSection />
+			<FooterSection />
+		</ScreenWrapper>
 	);
 };
 

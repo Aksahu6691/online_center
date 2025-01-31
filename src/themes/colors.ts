@@ -9,7 +9,8 @@ const colors = {
 	white: '#ffffff',
 	'night-black': '#111111',
 	'pink-purple': '#DC8CDB',
-	'shadow-grey': '#777777'
+	'shadow-gray': '#777777',
+	'slate-gray': '#4A4A4A'
 };
 
 export default colors;

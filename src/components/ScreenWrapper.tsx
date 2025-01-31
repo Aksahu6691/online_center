@@ -8,7 +8,7 @@ interface IScreenWrapperProps {
 
 const ScreenWrapper: React.FC<IScreenWrapperProps> = ({ children, className }) => {
 	return (
-		<div id="screen-parent" className={cn('h-fit bg-screen', className)}>
+		<div id="screen-parent" className={cn('h-fit', className)}>
 			{children}
 		</div>
 	);
