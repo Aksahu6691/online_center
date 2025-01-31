@@ -27,7 +27,7 @@ This project is an Online Service Centre Website that allows users to access var
 - Describes the mission, values, and purpose of the service centre.
 - Builds trust with users by explaining the legitimacy of the services.
 
-**5. Contact Page (Contact.tsx)**
+**🟢 5. Contact Page (Contact.tsx)**
 
 - Contains a Contact Form (ContactForm.tsx) for customer inquiries.
 - Users can ask questions, request services, or get support.
