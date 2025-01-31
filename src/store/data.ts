@@ -308,6 +308,20 @@ export const services = [
 		description: 'Get life, health, or vehicle insurance at the best rates with quick documentation.',
 		image:
 			'https://indirapuramcsc.com/wp-content/uploads/2024/04/Indirapuram-Common-Service-Centre-Blog-Post-02-770x400.jpg'
+	},
+	{
+		id: 7,
+		title: 'Digital Education',
+		description: 'Get free online courses and training for digital literacy, and learn how to use the internet safely.',
+		image:
+			'https://indirapuramcsc.com/wp-content/uploads/2024/04/Indirapuram-Common-Service-Centre-Blog-Post-02-770x400.jpg'
+	},
+	{
+		id: 8,
+		title: 'Mobile Services',
+		description: 'Get mobile recharge, buy new mobile connections, and access other mobile services.',
+		image:
+			'https://indirapuramcsc.com/wp-content/uploads/2024/04/Indirapuram-Common-Service-Centre-Blog-Post-02-770x400.jpg'
 	}
 ];
 

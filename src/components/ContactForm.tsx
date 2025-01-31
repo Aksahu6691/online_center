@@ -4,6 +4,7 @@ import CustomInput from './common/CustomInput';
 import CustomButton from './common/CustomButton';
 import CustomTextarea from './common/CustomTextarea';
 import { IContactFormSchema } from '@/types/contactForm.typs';
+import { ValidateContactForm } from '@/utils/validationSchema';
 
 const ContactForm = () => {
 	const initialValues: IContactFormSchema = {
@@ -27,7 +28,7 @@ const ContactForm = () => {
 				you as soon as possible!
 			</p>
 
-			<Formik initialValues={initialValues} onSubmit={handelSubmitValue}>
+			<Formik initialValues={initialValues} onSubmit={handelSubmitValue} validationSchema={ValidateContactForm}>
 				{({ values, handleBlur, handleChange, touched, errors, handleSubmit }: FormikProps<IContactFormSchema>) => (
 					<form onSubmit={handleSubmit} className="flex flex-col gap-5">
 						<CustomInput
