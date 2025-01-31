@@ -1,3 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+* {
+	scrollbar-width: thin; /* "auto" or "thin" */
+	scrollbar-color: #dc8cdb #f1f1f1; /* thumb and track color */
+}

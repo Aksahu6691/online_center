@@ -1,9 +1,10 @@
-import { Button, Spacer } from '@nextui-org/react';
+import { Spacer } from '@nextui-org/react';
 import { Formik, FormikProps } from 'formik';
 import CustomInput from './common/CustomInput';
 import useAppNavigate from '@/hooks/useAppNavigate';
 import { ValidateLoginForm } from '@/utils/validationSchema';
 import { ILoginFormSchema } from '@/types/loginForm.type';
+import CustomButton from './common/CustomButton';
 
 const LoginForm = () => {
 	const navigation = useAppNavigate();
@@ -58,9 +59,7 @@ const LoginForm = () => {
 						<Spacer y={2} />
 
 						{/* Submit Button */}
-						<Button type="submit" color="primary" fullWidth>
-							Login
-						</Button>
+						<CustomButton type="submit">Login</CustomButton>
 					</form>
 				)}
 			</Formik>
