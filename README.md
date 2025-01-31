@@ -67,16 +67,18 @@ This project is an Online Service Centre Website that allows users to access var
 ## 📌 What We Plan to Do in This Project?
 
 **✅ Features Implemented So Far:**
-✔ Routing System with Authentication
-✔ Home Page with Services & Testimonials
-✔ Contact Form for User Queries
-✔ Reusable Components for UI Consistency
+
+- ✔ Routing System with Authentication
+- ✔ Home Page with Services & Testimonials
+- ✔ Contact Form for User Queries
+- ✔ Reusable Components for UI Consistency
 
 **🚀 Future Improvements:**
-🔹 Service Booking Feature → Allow users to book services online.
-🔹 Admin Dashboard → Let the owner manage requests & responses.
-🔹 Payment Integration → Support UPI, Debit Card, and Net Banking.
-🔹 Multi-Language Support → Make the site accessible to a wider audience.
+
+- 🔹 Service Booking Feature → Allow users to book services online.
+- 🔹 Admin Dashboard → Let the owner manage requests & responses.
+- 🔹 Payment Integration → Support UPI, Debit Card, and Net Banking.
+- 🔹 Multi-Language Support → Make the site accessible to a wider audience.
 
 ## 💡 Summary
 
