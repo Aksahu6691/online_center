@@ -362,3 +362,10 @@ export const testimonials = [
 			'Very fast and reliable service. The team is knowledgeable and helped me with my GST registration smoothly.'
 	}
 ];
+
+export const statusBarData = [
+	{ id: '1', title: 'Finished Projects', count: 125 },
+	{ id: '2', title: 'Years Experience', count: 11 },
+	{ id: '3', title: 'Happy Clients', count: 87 },
+	{ id: '4', title: 'Awards Won', count: 24 }
+];

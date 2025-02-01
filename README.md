@@ -106,7 +106,7 @@ This Online Service Centre Website simplifies government and digital services fo
 To clone the project, run the following command:
 
 ```bash
-git clone https://github.com/frontio-ai/vite-template.git
+git clone https://github.com/Aksahu6691/online_center.git
 ```
 
 ### Install dependencies

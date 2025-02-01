@@ -14,7 +14,7 @@ const TestimonialSection = () => {
 				shadow="sm"
 			>
 				<div className="flex flex-col items-center justify-center gap-5 h-full p-5 text-center">
-					<p className="text-lg italic text-slate-gray">"{testimonial.description}"</p>
+					<p className="text-lg italic text-slate-gray">“{testimonial.description}”</p>
 					<div className="flex justify-between w-full">
 						<div className="flex flex-col text-start">
 							<h1 className="font-[900] text-xl text-night-black">{testimonial.name}</h1>
