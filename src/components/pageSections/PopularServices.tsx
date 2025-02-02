@@ -1,6 +1,7 @@
 import CustomCarousel from '../common/CustomCarousel';
 import CustomCard from '../common/CustomCard';
 import { services } from '@/store/data';
+import { CircleHafImage } from '@/assets/images';
 
 const PopularServices = () => {
 	const renderServiceCard = () => {
@@ -22,7 +23,15 @@ const PopularServices = () => {
 	};
 
 	return (
-		<section className="py-14 px-16 flex flex-col items-center text-center" style={{ minHeight: 'calc(100vh - 6rem)' }}>
+		<section
+			className="py-14 px-16 flex flex-col items-center text-center"
+			style={{
+				minHeight: 'calc(100vh - 6rem)',
+				backgroundImage: `url(${CircleHafImage})`,
+				backgroundRepeat: 'no-repeat',
+				backgroundPosition: 'top left'
+			}}
+		>
 			<h3 className="text-shadow-gray text-lg font-[500]">OUR SERVICES</h3>
 			<h2 className="text-3xl font-bold text-night-black">
 				Provided <span className="text-pink-purple">Services</span>

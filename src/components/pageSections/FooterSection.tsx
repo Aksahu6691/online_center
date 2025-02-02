@@ -22,7 +22,7 @@ const FooterSection = () => {
 		return (
 			<div className="relative pb-28">
 				<div className="absolute top-[-20px] w-full flex items-center justify-evenly">
-					<CustomCard className="w-60">
+					<CustomCard className="w-60" shadow="sm">
 						<div className="flex items-center justify-between gap-3">
 							<div className="w-12 h-12 bg-gradient-custom rounded-full flex items-center justify-center">📞</div>
 							<div className="flex flex-col w-[70%]">
@@ -31,7 +31,7 @@ const FooterSection = () => {
 							</div>
 						</div>
 					</CustomCard>
-					<CustomCard className="w-60">
+					<CustomCard className="w-60" shadow="sm">
 						<div className="flex items-center justify-between gap-3">
 							<div className="w-12 h-12 bg-gradient-custom rounded-full flex items-center justify-center">📞</div>
 							<div className="flex flex-col w-[70%]">
@@ -68,8 +68,12 @@ const FooterSection = () => {
 
 	return (
 		<section
-			className="pt-14 h-full flex flex-col items-center text-center justify-between"
-			style={{ backgroundImage: `url(${FooterBackgroundImage})`, backgroundRepeat: 'no-repeat' }}
+			className="pt-14 pb-10 h-full flex flex-col items-center text-center justify-between"
+			style={{
+				backgroundImage: `url(${FooterBackgroundImage})`,
+				backgroundRepeat: 'no-repeat',
+				backgroundPosition: 'bottom'
+			}}
 		>
 			<div className="flex flex-wrap justify-between w-full px-16">
 				<div className="w-full lg:w-[60%]">

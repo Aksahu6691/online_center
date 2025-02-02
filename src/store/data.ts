@@ -1,3 +1,4 @@
+import { BookLightImage, BookOpenImage } from '@/assets/images';
 import { ResponsiveConfig } from '@/types/commont.type';
 
 export const users = [
@@ -368,4 +369,19 @@ export const statusBarData = [
 	{ id: '2', title: 'Years Experience', count: 11 },
 	{ id: '3', title: 'Happy Clients', count: 87 },
 	{ id: '4', title: 'Awards Won', count: 24 }
+];
+
+export const aboutUsCardData = [
+	{
+		id: '1',
+		icon: BookOpenImage,
+		title: 'Best Strategy',
+		description: 'We implement result-driven strategies and market analysis to ensure business growth and efficiency.'
+	},
+	{
+		id: '2',
+		icon: BookLightImage,
+		title: 'Creative Ideas',
+		description: 'We bring innovative, out-of-the-box solutions to help businesses stand out in a competitive market.'
+	}
 ];

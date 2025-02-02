@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 import { APP_ROUTES } from '@/utils/constants';
-import { BannerRightImage } from '@/assets/images';
+import { BannerRightImage, CircleFullImage } from '@/assets/images';
 import CustomButton from '../common/CustomButton';
 
 const WelcomeSection = () => {
@@ -26,7 +26,14 @@ const WelcomeSection = () => {
 					</CustomButton>
 				</div>
 			</div>
-			<div className="w-full lg:w-[45%]">
+			<div
+				className="w-full lg:w-[45%]"
+				style={{
+					backgroundImage: `url(${CircleFullImage})`,
+					backgroundRepeat: 'no-repeat',
+					backgroundPosition: 'top right'
+				}}
+			>
 				<img src={BannerRightImage} alt="error" width={500} />
 			</div>
 		</section>
