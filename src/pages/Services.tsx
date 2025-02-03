@@ -14,7 +14,7 @@ const Services = () => {
 				shadow="sm"
 			>
 				<div className="flex flex-col items-center justify-center gap-3 h-full p-5 text-center">
-					<img src={service.image} alt="error" className="overflow-hidden" />
+					<img src={service.image} alt="error" className="w-full h-[50%] overflow-hidden" />
 					<h3 className="text-xl font-bold mb-4">{service.title}</h3>
 					<p className="text-sm text-slate-gray">{service.description}</p>
 				</div>
@@ -33,9 +33,7 @@ const Services = () => {
 						Provided <span className="text-pink-purple">Services</span>
 					</h2>
 				</div>
-				<div className="grid grid-col-2 lg:grid-cols-2 2xl:grid-cols-3 4xl:grid-cols-4 gap-6">
-					{renderServiceCard()}
-				</div>
+				<div className="grid grid-col-2 md:grid-cols-2 lg:grid-cols-3 4xl:grid-cols-4 gap-6">{renderServiceCard()}</div>
 			</section>
 		</ScreenWrapper>
 	);

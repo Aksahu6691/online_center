@@ -8,6 +8,7 @@ export const APP_ROUTES = {
 		ROOT: '/app',
 		HOME: '/app/home',
 		SERVICES: '/app/services',
+		BLOG: '/app/blog',
 		ABOUT: '/app/about',
 		CONTACT: '/app/contact'
 	}
@@ -16,6 +17,7 @@ export const APP_ROUTES = {
 export const NAVIGATION_ROUTES = {
 	HOME: APP_ROUTES.APP.HOME,
 	SERVICES: APP_ROUTES.APP.SERVICES,
+	BLOG: APP_ROUTES.APP.BLOG,
 	ABOUT: APP_ROUTES.APP.ABOUT,
 	CONTACT: APP_ROUTES.APP.CONTACT
 };

@@ -14,7 +14,7 @@ const PopularServices = () => {
 				shadow="sm"
 			>
 				<div className="flex flex-col items-center justify-center gap-3 h-full p-5 text-center">
-					<img src={service.image} alt="error" />
+					<img src={service.image} alt="error" className="w-full h-[50%] overflow-hidden" />
 					<h3 className="text-xl font-bold mb-4">{service.title}</h3>
 					<p className="text-sm text-slate-gray">{service.description}</p>
 				</div>
