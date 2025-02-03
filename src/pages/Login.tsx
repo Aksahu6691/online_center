@@ -1,10 +1,11 @@
 import LoginForm from '@/components/LoginForm';
+import ScreenWrapper from '@/components/ScreenWrapper';
 
 const Login = () => {
 	return (
-		<div>
+		<ScreenWrapper>
 			<LoginForm />
-		</div>
+		</ScreenWrapper>
 	);
 };
 

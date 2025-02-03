@@ -5,9 +5,11 @@ import useAppNavigate from '@/hooks/useAppNavigate';
 import { ValidateLoginForm } from '@/utils/validationSchema';
 import CustomButton from './common/CustomButton';
 import { ILoginFormSchema } from '@/types/schema.type';
+import useAppStore from '@/store/appStore';
 
 const LoginForm = () => {
 	const navigation = useAppNavigate();
+	const setIsAppLoading = useAppStore(state => state.setIsAppLoading);
 	const initialValues: ILoginFormSchema = {
 		email: '',
 		password: ''
@@ -16,6 +18,8 @@ const LoginForm = () => {
 	const handelSubmitValue = (values: ILoginFormSchema) => {
 		console.log('values', values);
 		navigation.toHome();
+		setIsAppLoading(true);
+		setTimeout(() => setIsAppLoading(false), 3000);
 	};
 
 	return (
