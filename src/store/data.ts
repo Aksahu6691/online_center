@@ -394,29 +394,6 @@ export const aboutUsCardData = [
 	}
 ];
 
-export const responsiveTeamMember: ResponsiveConfig = {
-	extraLarge: {
-		breakpoint: { max: 3000, min: 1536 },
-		items: 5,
-		slidesToSlide: 1
-	},
-	large: {
-		breakpoint: { max: 1536, min: 1280 },
-		items: 4,
-		slidesToSlide: 1
-	},
-	medium: {
-		breakpoint: { max: 1280, min: 768 },
-		items: 3,
-		slidesToSlide: 1
-	},
-	small: {
-		breakpoint: { max: 768, min: 0 },
-		items: 2,
-		slidesToSlide: 1
-	}
-};
-
 export const teamMembers = [
 	{
 		id: '1',

@@ -10,7 +10,7 @@ const PopularServices = () => {
 		return services.map(service => (
 			<CustomCard
 				key={service.id}
-				className="w-[85%] ms-5 h-80 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+				className="w-[85%] ms-5 h-80 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer"
 				shadow="sm"
 			>
 				<div className="flex flex-col items-center justify-center gap-3 h-full p-5 text-center">

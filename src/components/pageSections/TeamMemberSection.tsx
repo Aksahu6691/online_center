@@ -5,8 +5,10 @@ import CustomCard from '../common/CustomCard';
 import { ITeamMember } from '@/types/commont.type';
 import { cn } from '@nextui-org/react';
 import { BubbleLeftImage, BubbleRightImage } from '@/assets/images';
+import useAppNavigate from '@/hooks/useAppNavigate';
 
 const TeamMemberSection = () => {
+	const navigation = useAppNavigate();
 	const [currentTeamMember, setCurrentTeamMember] = useState<ITeamMember>(teamMembers[0]);
 
 	const renderTeamMemberCard = () => {
@@ -43,13 +45,15 @@ const TeamMemberSection = () => {
 							<p className="text-slate-gray">{currentTeamMember.description}</p>
 
 							<div className="flex gap-8 text-night-black font-semibold">
-								<div className="cursor-pointer">Facebook</div>
+								<div className="cursor-pointer hover:text-pink-purple">Facebook</div>
 								<span>|</span>
-								<div className="cursor-pointer">Twitter</div>
+								<div className="cursor-pointer hover:text-pink-purple">Twitter</div>
 								<span>|</span>
-								<div className="cursor-pointer">Linkedin</div>
+								<div className="cursor-pointer hover:text-pink-purple">Linkedin</div>
 							</div>
-							<div className="text-pink-purple underline cursor-pointer">Contact Member</div>
+							<div className="text-pink-purple underline cursor-pointer" onClick={() => navigation.toContact()}>
+								Contact Member
+							</div>
 						</div>
 						<img src={currentTeamMember.photo} alt="error" className="rounded-md w-[40%] h-[40%]" />
 					</div>
