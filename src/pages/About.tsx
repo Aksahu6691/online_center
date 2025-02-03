@@ -1,6 +1,7 @@
 import { AboutLeftImage } from '@/assets/images';
 import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import CustomCard from '@/components/common/CustomCard';
+import TeamMemberSection from '@/components/pageSections/TeamMemberSection';
 import ScreenWrapper from '@/components/ScreenWrapper';
 import { aboutUsCardData } from '@/store/data';
 
@@ -49,11 +50,12 @@ const About = () => {
 			</div>
 		);
 	};
+
 	return (
 		<ScreenWrapper>
 			<CustomBreadcrumb title="About Us" description="More About Us" />
 
-			<section className="px-16 py-20 mb-16">
+			<section className="px-16 py-16">
 				<div className="flex flex-wrap justify-between">
 					<div className="w-full lg:w-[45%] mb-5">
 						<img src={AboutLeftImage} alt="error" />
@@ -61,6 +63,7 @@ const About = () => {
 					<div className="w-full lg:w-[45%]">{renderRightContent()}</div>
 				</div>
 			</section>
+			<TeamMemberSection />
 		</ScreenWrapper>
 	);
 };

@@ -24,7 +24,7 @@ const PopularServices = () => {
 
 	return (
 		<section
-			className="py-14 px-16 flex flex-col items-center text-center"
+			className="py-16 px-16 flex flex-col items-center text-center"
 			style={{
 				minHeight: 'calc(100vh - 6rem)',
 				backgroundImage: `url(${CircleHafImage})`,

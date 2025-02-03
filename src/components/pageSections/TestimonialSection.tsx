@@ -29,7 +29,7 @@ const TestimonialSection = () => {
 
 	return (
 		<section
-			className="relative py-14 px-16 flex flex-col items-center text-center"
+			className="relative py-16 px-16 flex flex-col items-center text-center"
 			style={{ minHeight: 'calc(100vh - 6rem)' }}
 		>
 			<h3 className="text-shadow-gray text-lg font-[500]">TESTIMONIALS</h3>

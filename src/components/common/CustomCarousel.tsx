@@ -41,6 +41,7 @@ const CustomCarousel = (props: ICustomCarouselProp) => {
 		arrows = false,
 		pauseOnHover = true
 	} = props;
+
 	return (
 		<Carousel
 			swipeable={swipeable}

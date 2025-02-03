@@ -6,9 +6,14 @@ import { Link, useLocation } from 'react-router';
 import { cn } from '@nextui-org/react';
 import { users } from '@/store/data';
 import { NAVIGATION_ROUTES } from '@/utils/constants';
+import { useEffect } from 'react';
 
 const Nav = () => {
-	const location = useLocation();
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
 
 	return (
 		<nav id="nav" className={'fixed z-40 left-0 right-0 bg-gradient-custom shadow-md py-3 px-10 flex items-center'}>
@@ -23,7 +28,7 @@ const Nav = () => {
 						to={route}
 						className={cn(
 							'hover:text-pink-400 transition-colors text-white',
-							location.pathname === route && 'font-bold text-pink-purple'
+							pathname === route && 'font-bold text-pink-purple'
 						)}
 					>
 						{key.charAt(0) + key.slice(1).toLowerCase()}

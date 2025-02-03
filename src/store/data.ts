@@ -1,4 +1,12 @@
-import { BookLightImage, BookOpenImage } from '@/assets/images';
+import {
+	BookLightImage,
+	BookOpenImage,
+	TeamMember01Image,
+	TeamMember02Image,
+	TeamMember03Image,
+	TeamMember04Image,
+	TeamMember05Image
+} from '@/assets/images';
 import { ResponsiveConfig } from '@/types/commont.type';
 
 export const users = [
@@ -269,56 +277,56 @@ export const responsiveTestimonials: ResponsiveConfig = {
 
 export const services = [
 	{
-		id: 1,
+		id: '1',
 		title: 'Aadhar & PAN Services',
 		description: 'Apply for a new Aadhar card, PAN card, or update existing details quickly and easily.',
 		image:
 			'https://indirapuramcsc.com/wp-content/uploads/2024/04/Indirapuram-Common-Service-Centre-Blog-Post-02-770x400.jpg'
 	},
 	{
-		id: 2,
+		id: '2',
 		title: 'Bill Payments',
 		description: 'Pay electricity, water, gas, and mobile bills securely from one place.',
 		image:
 			'https://indirapuramcsc.com/wp-content/uploads/2024/04/Indirapuram-Common-Service-Centre-Blog-Post-02-770x400.jpg'
 	},
 	{
-		id: 3,
+		id: '3',
 		title: 'Banking Services',
 		description: 'Open new bank accounts, deposit/withdraw cash, and access various financial services.',
 		image:
 			'https://indirapuramcsc.com/wp-content/uploads/2024/04/Indirapuram-Common-Service-Centre-Blog-Post-02-770x400.jpg'
 	},
 	{
-		id: 4,
+		id: '4',
 		title: 'Government Forms',
 		description: 'Apply for birth certificates, caste certificates, ration cards, and more online.',
 		image:
 			'https://indirapuramcsc.com/wp-content/uploads/2024/04/Indirapuram-Common-Service-Centre-Blog-Post-02-770x400.jpg'
 	},
 	{
-		id: 5,
+		id: '5',
 		title: 'Railway & Bus Tickets',
 		description: 'Book train and bus tickets at affordable prices without any hassle.',
 		image:
 			'https://indirapuramcsc.com/wp-content/uploads/2024/04/Indirapuram-Common-Service-Centre-Blog-Post-02-770x400.jpg'
 	},
 	{
-		id: 6,
+		id: '6',
 		title: 'Insurance Services',
 		description: 'Get life, health, or vehicle insurance at the best rates with quick documentation.',
 		image:
 			'https://indirapuramcsc.com/wp-content/uploads/2024/04/Indirapuram-Common-Service-Centre-Blog-Post-02-770x400.jpg'
 	},
 	{
-		id: 7,
+		id: '7',
 		title: 'Digital Education',
 		description: 'Get free online courses and training for digital literacy, and learn how to use the internet safely.',
 		image:
 			'https://indirapuramcsc.com/wp-content/uploads/2024/04/Indirapuram-Common-Service-Centre-Blog-Post-02-770x400.jpg'
 	},
 	{
-		id: 8,
+		id: '8',
 		title: 'Mobile Services',
 		description: 'Get mobile recharge, buy new mobile connections, and access other mobile services.',
 		image:
@@ -383,5 +391,71 @@ export const aboutUsCardData = [
 		icon: BookLightImage,
 		title: 'Creative Ideas',
 		description: 'We bring innovative, out-of-the-box solutions to help businesses stand out in a competitive market.'
+	}
+];
+
+export const responsiveTeamMember: ResponsiveConfig = {
+	extraLarge: {
+		breakpoint: { max: 3000, min: 1536 },
+		items: 5,
+		slidesToSlide: 1
+	},
+	large: {
+		breakpoint: { max: 1536, min: 1280 },
+		items: 4,
+		slidesToSlide: 1
+	},
+	medium: {
+		breakpoint: { max: 1280, min: 768 },
+		items: 3,
+		slidesToSlide: 1
+	},
+	small: {
+		breakpoint: { max: 768, min: 0 },
+		items: 2,
+		slidesToSlide: 1
+	}
+};
+
+export const teamMembers = [
+	{
+		id: '1',
+		photo: TeamMember01Image,
+		name: 'Ruby Foster',
+		designation: 'CEO-FOUNDER',
+		description:
+			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
+	},
+	{
+		id: '2',
+		photo: TeamMember02Image,
+		name: 'Luis Oconnell',
+		designation: 'CEO-FOUNDER',
+		description:
+			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
+	},
+	{
+		id: '3',
+		photo: TeamMember03Image,
+		name: 'Jackie Riggs',
+		designation: 'CEO-FOUNDER',
+		description:
+			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
+	},
+	{
+		id: '4',
+		photo: TeamMember04Image,
+		name: 'Alfred Small',
+		designation: 'CEO-FOUNDER',
+		description:
+			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
+	},
+	{
+		id: '5',
+		photo: TeamMember05Image,
+		name: 'Denis Mitchel',
+		designation: 'CEO-FOUNDER',
+		description:
+			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
 	}
 ];

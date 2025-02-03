@@ -7,7 +7,7 @@ const WelcomeSection = () => {
 	const navigate = useNavigate();
 	return (
 		<section
-			className="flex flex-row flex-wrap items-center justify-between px-16"
+			className="flex flex-row flex-wrap items-center justify-between px-16 py-16"
 			style={{ minHeight: 'calc(100vh - 6rem)' }}
 		>
 			<div className="w-full lg:w-[45%]">

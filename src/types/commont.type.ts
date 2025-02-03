@@ -23,3 +23,11 @@ export interface ResponsiveConfig {
 		slidesToSlide: number;
 	};
 }
+
+export interface ITeamMember {
+	id: string;
+	photo: string;
+	name: string;
+	designation: string;
+	description: string;
+}

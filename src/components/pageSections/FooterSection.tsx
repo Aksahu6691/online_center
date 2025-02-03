@@ -68,7 +68,7 @@ const FooterSection = () => {
 
 	return (
 		<section
-			className="pt-14 pb-10 h-full flex flex-col items-center text-center justify-between"
+			className="pt-16 pb-10 h-full flex flex-col items-center text-center justify-between"
 			style={{
 				backgroundImage: `url(${FooterBackgroundImage})`,
 				backgroundRepeat: 'no-repeat',

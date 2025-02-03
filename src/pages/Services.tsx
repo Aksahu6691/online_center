@@ -14,7 +14,7 @@ const Services = () => {
 				shadow="sm"
 			>
 				<div className="flex flex-col items-center justify-center gap-3 h-full p-5 text-center">
-					<img src={service.image} alt="error" />
+					<img src={service.image} alt="error" className="overflow-hidden" />
 					<h3 className="text-xl font-bold mb-4">{service.title}</h3>
 					<p className="text-sm text-slate-gray">{service.description}</p>
 				</div>
@@ -26,7 +26,7 @@ const Services = () => {
 		<ScreenWrapper>
 			<CustomBreadcrumb title="Our Service" description="What We Do" />
 
-			<section className="px-16 mb-20">
+			<section className="px-16 py-16">
 				<div className="py-14 flex flex-col items-center">
 					<h3 className="text-shadow-gray text-lg font-[500]">OUR SERVICES</h3>
 					<h2 className="text-3xl font-bold text-night-black">
