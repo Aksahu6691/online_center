@@ -10,6 +10,7 @@ import useAppStore from '@/store/appStore';
 const LoginForm = () => {
 	const navigation = useAppNavigate();
 	const setIsAppLoading = useAppStore(state => state.setIsAppLoading);
+
 	const initialValues: ILoginFormSchema = {
 		email: '',
 		password: ''
