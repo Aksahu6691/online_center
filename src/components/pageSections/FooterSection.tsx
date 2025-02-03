@@ -72,7 +72,8 @@ const FooterSection = () => {
 			style={{
 				backgroundImage: `url(${FooterBackgroundImage})`,
 				backgroundRepeat: 'no-repeat',
-				backgroundPosition: 'bottom'
+				backgroundPosition: 'bottom',
+				backgroundSize: '100%'
 			}}
 		>
 			<div className="flex flex-wrap justify-between w-full px-8 md:px-16">
