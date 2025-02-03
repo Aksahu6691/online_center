@@ -1,11 +1,11 @@
 import { LogoImage } from '@/assets/images';
 import CustomAvatar from '../common/CustomAvatar';
 import CustomSearchInput from '../common/CustomSearchInput';
-import { APP_ROUTES } from '@/utils/constants';
 import { SearchIcon } from '@/assets/icons';
 import { Link, useLocation } from 'react-router';
 import { cn } from '@nextui-org/react';
 import { users } from '@/store/data';
+import { NAVIGATION_ROUTES } from '@/utils/constants';
 
 const Nav = () => {
 	const location = useLocation();
@@ -17,21 +17,18 @@ const Nav = () => {
 			</div>
 
 			<div className={'flex w-[40%] justify-center gap-10 items-center'}>
-				{Object.entries(APP_ROUTES.APP).map(
-					([key, route]) =>
-						key !== 'ROOT' && (
-							<Link
-								key={key}
-								to={route}
-								className={cn(
-									'hover:text-pink-400 transition-colors text-white',
-									location.pathname === route && 'font-bold text-pink-purple'
-								)}
-							>
-								{key.charAt(0) + key.slice(1).toLowerCase()}
-							</Link>
-						)
-				)}
+				{Object.entries(NAVIGATION_ROUTES).map(([key, route]) => (
+					<Link
+						key={key}
+						to={route}
+						className={cn(
+							'hover:text-pink-400 transition-colors text-white',
+							location.pathname === route && 'font-bold text-pink-purple'
+						)}
+					>
+						{key.charAt(0) + key.slice(1).toLowerCase()}
+					</Link>
+				))}
 			</div>
 
 			<div className={'flex flex-1 gap-8 justify-end items-center'}>

@@ -13,6 +13,13 @@ export const APP_ROUTES = {
 	}
 } as const;
 
+export const NAVIGATION_ROUTES = {
+	HOME: APP_ROUTES.APP.HOME,
+	SERVICES: APP_ROUTES.APP.SERVICES,
+	ABOUT: APP_ROUTES.APP.ABOUT,
+	CONTACT: APP_ROUTES.APP.CONTACT
+};
+
 export const COMMON_ERROR_MESSAGE = 'Something went wrong. Please try again later.';
 
 export const Responsive: ResponsiveConfig = {
