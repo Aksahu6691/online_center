@@ -11,7 +11,7 @@ const Nav = () => {
 	const location = useLocation();
 
 	return (
-		<nav id="nav" className={'fixed z-50 left-0 right-0 bg-gradient-custom shadow-md py-3 px-10 flex items-center'}>
+		<nav id="nav" className={'fixed z-40 left-0 right-0 bg-gradient-custom shadow-md py-3 px-10 flex items-center'}>
 			<div className="ml-3">
 				<img src={LogoImage} alt="Logo" width={200} className={'hover:opacity-80 transition-opacity'} />
 			</div>

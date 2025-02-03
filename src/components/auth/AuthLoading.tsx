@@ -1,18 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Spinner } from '@nextui-org/react';
-import useAppNavigate from '@/hooks/useAppNavigate';
-import ScreenWrapper from '../ScreenWrapper';
 
-const AuthLoading = () => {
-	const navigate = useAppNavigate();
+const AuthLoading: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+	const [isAppLoading, setIsAppLoading] = useState(true);
 	useEffect(() => {
-		setTimeout(() => navigate.toRoot(), 3000);
-	}, [navigate]);
+		setTimeout(() => setIsAppLoading(false), 3000);
+	}, []);
 
 	return (
-		<ScreenWrapper className="flex justify-center items-center h-screen">
-			<Spinner />
-		</ScreenWrapper>
+		<div>
+			{isAppLoading && (
+				<div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+					<Spinner />
+				</div>
+			)}
+			{children}
+		</div>
 	);
 };
 
