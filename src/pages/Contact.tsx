@@ -65,7 +65,7 @@ const Contact = () => {
 		<ScreenWrapper>
 			<CustomBreadcrumb title="Contact Us" description="Say Hello Online Center" />
 
-			<section className="px-16 py-20 mb-16">
+			<section className="px-8 md:px-16 py-20 mb-16">
 				<div className="flex flex-wrap justify-between">
 					<div className="w-full lg:w-[45%] mb-5">{renderLeftContent()}</div>
 					<div className="w-full lg:w-[45%]">{renderRightContent()}</div>

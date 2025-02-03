@@ -38,13 +38,13 @@ const TeamMemberSection = () => {
 				transition={{ duration: 0.6 }}
 				className="flex flex-col items-center"
 			>
-				<CustomCard shadow="md" className="w-[70%]">
-					<div className="flex justify-between">
-						<div className="w-[60%] p-8 flex flex-col justify-between">
+				<CustomCard shadow="md" className="w-full md:w-[70%]">
+					<div className="flex flex-col-reverse lg:flex-row flex-wrap justify-between">
+						<div className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] p-8 gap-2 flex flex-col justify-between">
 							<h2 className="text-night-black text-xl font-extrabold">{currentTeamMember.name}</h2>
 							<p className="text-slate-gray">{currentTeamMember.description}</p>
 
-							<div className="flex gap-8 text-night-black font-semibold">
+							<div className="flex justify-between lg:w-64 gap-2 text-night-black font-semibold">
 								<div className="cursor-pointer hover:text-pink-purple">Facebook</div>
 								<span>|</span>
 								<div className="cursor-pointer hover:text-pink-purple">Twitter</div>
@@ -55,7 +55,7 @@ const TeamMemberSection = () => {
 								Contact Member
 							</div>
 						</div>
-						<img src={currentTeamMember.photo} alt="error" className="rounded-md w-[40%] h-[40%]" />
+						<img src={currentTeamMember.photo} alt="error" className="rounded-md w-full lg:w-[40%] lg:h-[40%]" />
 					</div>
 				</CustomCard>
 			</motion.div>
@@ -64,7 +64,7 @@ const TeamMemberSection = () => {
 
 	return (
 		<section
-			className="relative py-20 px-16 flex flex-col items-center text-center"
+			className="relative py-20 px-8 md:px-16 flex flex-col items-center text-center"
 			style={{ minHeight: 'calc(100vh - 6rem)' }}
 		>
 			<h3 className="text-shadow-gray text-lg font-[500]">OUR TEAM</h3>

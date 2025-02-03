@@ -26,7 +26,7 @@ const Services = () => {
 		<ScreenWrapper>
 			<CustomBreadcrumb title="Our Service" description="What We Do" />
 
-			<section className="px-16 py-16">
+			<section className="px-8 md:px-16 py-16">
 				<div className="py-14 flex flex-col items-center">
 					<h3 className="text-shadow-gray text-lg font-[500]">OUR SERVICES</h3>
 					<h2 className="text-3xl font-bold text-night-black">

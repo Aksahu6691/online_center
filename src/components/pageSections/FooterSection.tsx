@@ -75,13 +75,13 @@ const FooterSection = () => {
 				backgroundPosition: 'bottom'
 			}}
 		>
-			<div className="flex flex-wrap justify-between w-full px-16">
+			<div className="flex flex-wrap justify-between w-full px-8 md:px-16">
 				<div className="w-full lg:w-[60%]">
 					<CustomGoogleMap src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3398.8470131047643!2d81.6590628748559!3d21.255757880450947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28dd6f83c9b421%3A0xca789c0af9b3e705!2sMagure%20Inc!5e1!3m2!1sen!2sin!4v1738324283122!5m2!1sen!2sin" />
 
 					{renderContactDetail()}
 				</div>
-				<div className="w-full lg:w-[36%]">
+				<div className="w-full lg:w-[36%] mb-5">
 					<ContactForm onSubmit={handelSubmit} />
 				</div>
 			</div>

@@ -55,7 +55,7 @@ const About = () => {
 		<ScreenWrapper>
 			<CustomBreadcrumb title="About Us" description="More About Us" />
 
-			<section className="px-16 py-16">
+			<section className="px-8 md:px-16 py-16">
 				<div className="flex flex-wrap justify-between">
 					<div className="w-full lg:w-[45%] mb-5">
 						<img src={AboutLeftImage} alt="error" />
