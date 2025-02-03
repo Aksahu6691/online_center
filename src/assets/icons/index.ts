@@ -7,6 +7,8 @@ import CloudUploadIcon from './cloudUpload.svg';
 import SearchIcon from './search.svg';
 import SuccessIcon from './successIcon.svg';
 import WarningIcon from './warningIcon.svg';
+import MenuIcon from './menuIcon.svg';
+import CloseIcon from './closeIcon.svg';
 
 export {
 	NotFoundIcon,
@@ -17,5 +19,7 @@ export {
 	CloudUploadIcon,
 	SearchIcon,
 	SuccessIcon,
-	WarningIcon
+	WarningIcon,
+	MenuIcon,
+	CloseIcon
 };
