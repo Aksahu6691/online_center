@@ -9,6 +9,31 @@ const BlogView = () => {
 	const navigate = useAppNavigate();
 	console.log('blogId', blogId);
 
+	const renderBlogCards = () => {
+		return blogData.map(blog => (
+			<CustomCard
+				key={blog.id}
+				className="h-fit transition-all duration-300 ease-in-out hover:scale-105 cursor-pointer mb-4"
+				shadow="md"
+				isPressable={true}
+				onPress={() => navigate.toBlogView(blog.id)}
+			>
+				<img src={blog.image} alt={blog.title} className="w-full h-36 object-cover" />
+				<div className="p-4">
+					<h2 className="font-bold text-lg text-night-black line-clamp-1">{blog.title}</h2>
+					<p className="text-slate-gray mt-2 line-clamp-4">{blog.description}</p>
+					<div className="flex items-center mt-4">
+						<img src={blog.authorImage} alt={blog.author} className="w-10 h-10 rounded-full" />
+						<div className="ml-3">
+							<p className="text-sm font-medium">{blog.author}</p>
+							<p className="text-xs text-slate-gray">{blog.uploadedDate}</p>
+						</div>
+					</div>
+				</div>
+			</CustomCard>
+		));
+	};
+
 	return (
 		<ScreenWrapper>
 			<section className="px-8 md:px-16 py-16">
@@ -27,30 +52,7 @@ const BlogView = () => {
 						</div>
 					</div>
 
-					<div className="w-full md:w-[20%]">
-						{blogData.map(blog => (
-							<CustomCard
-								key={blog.id}
-								className="h-fit transition-all duration-300 ease-in-out hover:scale-105 cursor-pointer mb-4"
-								shadow="md"
-								isPressable={true}
-								onPress={() => navigate.toBlogView(blog.id)}
-							>
-								<img src={blog.image} alt={blog.title} className="w-full h-36 object-cover" />
-								<div className="p-4">
-									<h2 className="font-bold text-lg text-night-black line-clamp-1">{blog.title}</h2>
-									<p className="text-slate-gray mt-2 line-clamp-4">{blog.description}</p>
-									<div className="flex items-center mt-4">
-										<img src={blog.authorImage} alt={blog.author} className="w-10 h-10 rounded-full" />
-										<div className="ml-3">
-											<p className="text-sm font-medium">{blog.author}</p>
-											<p className="text-xs text-slate-gray">{blog.uploadedDate}</p>
-										</div>
-									</div>
-								</div>
-							</CustomCard>
-						))}
-					</div>
+					<div className="w-full md:w-[20%]">{renderBlogCards()}</div>
 				</div>
 			</section>
 		</ScreenWrapper>
