@@ -8,7 +8,10 @@ export const APP_ROUTES = {
 		ROOT: '/app',
 		HOME: '/app/home',
 		SERVICES: '/app/services',
-		BLOG: '/app/blog',
+		BLOG: {
+			BLOG_URL: '/app/blog',
+			BLOG_VIEW: (id: string) => `/app/blog/view/${id}`
+		},
 		ABOUT: '/app/about',
 		CONTACT: '/app/contact'
 	}
@@ -17,7 +20,7 @@ export const APP_ROUTES = {
 export const NAVIGATION_ROUTES = {
 	HOME: APP_ROUTES.APP.HOME,
 	SERVICES: APP_ROUTES.APP.SERVICES,
-	BLOG: APP_ROUTES.APP.BLOG,
+	BLOG: APP_ROUTES.APP.BLOG.BLOG_URL,
 	ABOUT: APP_ROUTES.APP.ABOUT,
 	CONTACT: APP_ROUTES.APP.CONTACT
 };

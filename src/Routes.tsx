@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import BlogView from './pages/BlogView';
 
 const Routes = () => {
 	return (
@@ -25,7 +26,8 @@ const Routes = () => {
 				>
 					<Route path={APP_ROUTES.APP.HOME} element={<Home />} />
 					<Route path={APP_ROUTES.APP.SERVICES} element={<Services />} />
-					<Route path={APP_ROUTES.APP.BLOG} element={<Blog />} />
+					<Route path={APP_ROUTES.APP.BLOG.BLOG_URL} element={<Blog />} />
+					<Route path={APP_ROUTES.APP.BLOG.BLOG_VIEW(':blogId')} element={<BlogView />} />
 					<Route path={APP_ROUTES.APP.ABOUT} element={<About />} />
 					<Route path={APP_ROUTES.APP.CONTACT} element={<Contact />} />
 				</Route>

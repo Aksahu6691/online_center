@@ -60,7 +60,7 @@ const Nav = () => {
 	};
 
 	return (
-		<nav className="fixed z-50 w-full bg-gradient-custom shadow-md py-3 px-6 md:px-10 flex items-center justify-between">
+		<nav className="fixed z-40 w-full bg-gradient-custom shadow-md py-3 px-6 md:px-10 flex items-center justify-between">
 			{/* Logo */}
 			<div className="flex items-center">
 				<img src={LogoImage} alt="Logo" width={150} className="hover:opacity-80 transition-opacity" />

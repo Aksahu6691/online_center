@@ -19,6 +19,8 @@ const useAppNavigate = () => {
 			// Authenticated routes
 			toHome: (option?: NavigateOptions) => navigate(APP.HOME, option),
 			toServices: (option?: NavigateOptions) => navigate(APP.SERVICES, option),
+			toBlogs: (option?: NavigateOptions) => navigate(APP.BLOG.BLOG_URL, option),
+			toBlogView: (id: string, option?: NavigateOptions) => navigate(APP.BLOG.BLOG_VIEW(id), option),
 			toAbout: (option?: NavigateOptions) => navigate(APP.ABOUT, option),
 			toContact: (option?: NavigateOptions) => navigate(APP.CONTACT, option)
 		}),

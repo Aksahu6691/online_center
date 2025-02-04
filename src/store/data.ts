@@ -436,3 +436,69 @@ export const teamMembers = [
 			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
 	}
 ];
+
+export const blogData = [
+	{
+		id: '1',
+		image:
+			'https://images.ctfassets.net/pdf29us7flmy/g4wvzOMpch3fwcFpC7L7F/e91c20b5c20cc4fab54bc0f85098aa48/Office_Workspaces_person_thinking_about_solution_while_staring_at_desktop_screen_-getty21-.jpg?w=720&q=100&fm=jpg',
+		title: 'Top 5 Tools for Web Designers',
+		description:
+			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium debitis nulla vel. Quia beatae nostrum delectus et eligendi doloribus assumenda ab ad sed quos, nobis dolorem itaque? Iste, suscipit commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure vitae beatae voluptatum asperiores nulla tenetur quas itaque id, iste quo culpa suscipit magni explicabo maxime, a architecto assumenda molestias. Cumque? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore sunt ea, velit molestiae incidunt atque exercitationem consequuntur pariatur qui voluptates repellat dolorem saepe laudantium voluptas unde id necessitatibus. Veritatis, ratione!',
+		author: 'Ruby Foster',
+		authorImage: TeamMember01Image,
+		uploadedDate: 'May 25, 2023'
+	},
+	{
+		id: '2',
+		image:
+			'https://cdn.prod.website-files.com/6009ec8cda7f305645c9d91b/60108d20fe7e067d75ce4225_6002086f72b72771ff01e64e_N4bt2VcrF3fpmms28jUwlRD66cbY0iLBHsTO-FeHRNwRM38pRkuWxMLFIUk8xzr_s1vd_D_EFNJ4D3H3Zk-kN9ogJ1aRB8-LWqFg1FXNtVpu4pDASaTo2-HWv2KsGqrT0ZJKAT_H.png',
+		title: 'Understanding the Basics of SEO',
+		description:
+			"Learn about the fundamental principles of SEO and how they can help you improve your website's visibility on search engines. This guide covers keyword research, on-page optimization, and link building strategies.",
+		author: 'Luis Oconnell',
+		authorImage: TeamMember02Image,
+		uploadedDate: 'June 10, 2023'
+	},
+	{
+		id: '3',
+		image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV5zYT00pwrLq4U_J4A8bn6dX_fhSjnUDX5g&s',
+		title: 'Effective Social Media Marketing Strategies',
+		description:
+			'Explore the best practices for creating engaging content and building a strong social media presence. Discover how to leverage platforms like Facebook, Instagram, and Twitter to connect with your audience.',
+		author: 'Jackie Riggs',
+		authorImage: TeamMember03Image,
+		uploadedDate: 'July 5, 2023'
+	},
+	{
+		id: '4',
+		image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8HUFy9G_uxD7dhKG5Vfu3QZkfWT5WJoH4Ig&s',
+		title: 'The Future of E-commerce',
+		description:
+			'Stay ahead of the curve by learning about the latest trends and technologies shaping the future of e-commerce. From AI-driven personalization to mobile-first strategies, this article covers it all.',
+		author: 'Alfred Small',
+		authorImage: TeamMember04Image,
+		uploadedDate: 'August 15, 2023'
+	},
+	{
+		id: '5',
+		image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5LP8jn4hFTTyGQYM-mlf_Z0IfmOyDcq2z4A&s',
+		title: 'Designing for Accessibility',
+		description:
+			'Ensure your website is accessible to everyone by following these design principles. Learn how to create inclusive digital experiences that cater to users with disabilities.',
+		author: 'Denis Mitchel',
+		authorImage: TeamMember05Image,
+		uploadedDate: 'September 1, 2023'
+	},
+	{
+		id: '6',
+		image:
+			'https://media.istockphoto.com/id/183760144/photo/corporate-modern-office.jpg?s=612x612&w=is&k=20&c=TFUfwR78pVCQh70lrRNLIUgsUVYm-YNs_mxtf-h8DGE=',
+		title: 'Mastering Web Development in 2023',
+		description:
+			"A comprehensive guide to mastering web development in 2023, covering the latest tools, frameworks, and techniques. Whether you're a beginner or an experienced developer, this article has something for you.",
+		author: 'Ruby Foster',
+		authorImage: TeamMember01Image,
+		uploadedDate: 'October 20, 2023'
+	}
+];
