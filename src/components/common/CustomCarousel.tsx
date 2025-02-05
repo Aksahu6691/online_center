@@ -1,7 +1,7 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import CustomDot from './CustomDot';
-import { ResponsiveConfig } from '@/types/commont.type';
+import { ResponsiveConfig } from '@/types/common.type';
 import { cn } from '@nextui-org/react';
 import { Responsive } from '@/utils/constants';
 

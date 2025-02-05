@@ -4,22 +4,25 @@ import ErrorPage from './components/routes/ErrorPage';
 import { ToastContainer } from 'react-toastify';
 import Routes from './Routes';
 import AuthLoading from './components/auth/AuthLoading';
+import { HttpContextProvider } from './context/HttpContextProvider';
 
 const App = () => {
 	return (
 		<NextUIProvider>
 			<ErrorBoundary fallback={<ErrorPage />}>
-				<AuthLoading>
-					<Routes />
-					<ToastContainer
-						autoClose={3000}
-						hideProgressBar={false}
-						newestOnTop={true}
-						closeOnClick={true}
-						rtl={false}
-						draggable
-					/>
-				</AuthLoading>
+				<HttpContextProvider>
+					<AuthLoading>
+						<Routes />
+						<ToastContainer
+							autoClose={3000}
+							hideProgressBar={false}
+							newestOnTop={true}
+							closeOnClick={true}
+							rtl={false}
+							draggable
+						/>
+					</AuthLoading>
+				</HttpContextProvider>
 			</ErrorBoundary>
 		</NextUIProvider>
 	);

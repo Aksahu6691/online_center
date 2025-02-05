@@ -7,7 +7,7 @@ import {
 	TeamMember04Image,
 	TeamMember05Image
 } from '@/assets/images';
-import { ResponsiveConfig } from '@/types/commont.type';
+import { ResponsiveConfig } from '@/types/common.type';
 
 export const users = [
 	{

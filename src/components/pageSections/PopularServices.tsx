@@ -1,13 +1,28 @@
+import { useCallback, useEffect, useState } from 'react';
 import CustomCarousel from '../common/CustomCarousel';
 import CustomCard from '../common/CustomCard';
-import { services } from '@/store/data';
 import { CircleHafImage } from '@/assets/images';
+import useServicesApi from '@/api/services/useServicesApi';
+import { IServiceResponse } from '@/api/services/services.types';
 
 const PopularServices = () => {
-	const renderServiceCard = () => {
-		if (!services) return;
+	const { getServices } = useServicesApi();
 
-		return services.map(service => (
+	const [servicesData, setServicesData] = useState<IServiceResponse[]>([]);
+
+	const fetchServices = useCallback(async () => {
+		const { response, success } = await getServices();
+		if (success) {
+			setServicesData(response?.data || []);
+		}
+	}, [getServices]);
+
+	useEffect(() => {
+		fetchServices();
+	}, [fetchServices]);
+
+	const renderServiceCard = () => {
+		return servicesData?.map(service => (
 			<CustomCard
 				key={service.id}
 				className="w-[85%] ms-5 h-80 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer"

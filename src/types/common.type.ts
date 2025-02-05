@@ -24,10 +24,17 @@ export interface ResponsiveConfig {
 	};
 }
 
-export interface ITeamMember {
-	id: string;
-	photo: string;
-	name: string;
-	designation: string;
-	description: string;
+interface IResponse<T> {
+	currentDataSize?: number;
+	totalDataSize?: number;
+	totalPages?: number;
+	currentPage?: number;
+	hasMore?: boolean;
+	data: T | null;
+}
+
+export interface IApiResponseData<T> {
+	success: boolean;
+	errorMsg: string;
+	response?: IResponse<T>;
 }

@@ -1,13 +1,28 @@
+import { IServiceResponse } from '@/api/services/services.types';
+import useServicesApi from '@/api/services/useServicesApi';
 import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import CustomCard from '@/components/common/CustomCard';
 import ScreenWrapper from '@/components/ScreenWrapper';
-import { services } from '@/store/data';
+import { useCallback, useEffect, useState } from 'react';
 
 const Services = () => {
-	const renderServiceCard = () => {
-		if (!services) return;
+	const { getServices } = useServicesApi();
 
-		return services.map(service => (
+	const [servicesData, setServicesData] = useState<IServiceResponse[]>([]);
+
+	const fetchServices = useCallback(async () => {
+		const { response, success } = await getServices();
+		if (success) {
+			setServicesData(response?.data || []);
+		}
+	}, [getServices]);
+
+	useEffect(() => {
+		fetchServices();
+	}, [fetchServices]);
+
+	const renderServiceCard = () => {
+		return servicesData?.map(service => (
 			<CustomCard
 				key={service.id}
 				className="h-72 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg p-3 cursor-pointer"

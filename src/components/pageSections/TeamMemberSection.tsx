@@ -1,27 +1,42 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { teamMembers } from '@/store/data';
 import CustomCard from '../common/CustomCard';
-import { ITeamMember } from '@/types/commont.type';
 import { cn } from '@nextui-org/react';
 import { BubbleLeftImage, BubbleRightImage } from '@/assets/images';
 import useAppNavigate from '@/hooks/useAppNavigate';
+import useUserApi from '@/api/user/useUserApi';
+import { IUserResponse } from '@/api/user/user.types';
+import { isArrayEmpty } from '@/utils/utils';
 
 const TeamMemberSection = () => {
 	const navigation = useAppNavigate();
-	const [currentTeamMember, setCurrentTeamMember] = useState<ITeamMember>(teamMembers[0]);
+	const { getUser } = useUserApi();
+	const [teamMemberData, setTeamMemberData] = useState<IUserResponse[]>([]);
+	const [currentTeamMember, setCurrentTeamMember] = useState<IUserResponse | null>(null);
+
+	const fetchUser = useCallback(async () => {
+		const { response, success } = await getUser();
+		if (success) {
+			setCurrentTeamMember(response?.data?.[0] ?? null);
+			setTeamMemberData(response?.data || []);
+		}
+	}, [getUser]);
+
+	useEffect(() => {
+		fetchUser();
+	}, [fetchUser]);
 
 	const renderTeamMemberCard = () => {
-		if (!teamMembers) return;
+		if (isArrayEmpty(teamMemberData) || !currentTeamMember) return;
 
-		return teamMembers.map(team => (
+		return teamMemberData?.map(team => (
 			<div
 				key={team.id}
 				className="w-32 flex flex-col gap-1 transition-all duration-300 ease-in-out hover:scale-105 cursor-pointer"
 				onClick={() => setCurrentTeamMember(team)}
 			>
 				<img src={team.photo} alt="error" className="rounded-full" />
-				<div className={cn('font-[900]', currentTeamMember.id == team.id ? 'text-pink-purple' : 'text-night-black')}>
+				<div className={cn('font-[900]', currentTeamMember?.id == team.id ? 'text-pink-purple' : 'text-night-black')}>
 					{team.name}
 				</div>
 				<div className="text-xs text-pink-purple font-bold">{team.designation}</div>
@@ -30,6 +45,8 @@ const TeamMemberSection = () => {
 	};
 
 	const renderTeamMemberDetailCard = () => {
+		if (!currentTeamMember) return;
+
 		return (
 			<motion.div
 				key={currentTeamMember.id}

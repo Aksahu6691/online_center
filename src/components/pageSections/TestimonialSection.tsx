@@ -1,20 +1,36 @@
-import { responsiveTestimonials, testimonials } from '@/store/data';
+import { useCallback, useEffect, useState } from 'react';
+import { responsiveTestimonials } from '@/store/data';
 import CustomCard from '../common/CustomCard';
 import CustomCarousel from '../common/CustomCarousel';
 import { QuoteImage, TestimonialsLeftImage, TestimonialsRightImage } from '@/assets/images';
+import useTestimonialApi from '@/api/testimonial/useTestimonialApi';
+import { ITestimonialResponse } from '@/api/testimonial/testimonial.types';
 
 const TestimonialSection = () => {
-	const renderTestimonialCard = () => {
-		if (!testimonials) return;
+	const { getTestimonials } = useTestimonialApi();
 
-		return testimonials.map(testimonial => (
+	const [testimonial, setTestimonial] = useState<ITestimonialResponse[]>([]);
+
+	const fetchTestimonial = useCallback(async () => {
+		const { response, success } = await getTestimonials();
+		if (success) {
+			setTestimonial(response?.data || []);
+		}
+	}, [getTestimonials]);
+
+	useEffect(() => {
+		fetchTestimonial();
+	}, [fetchTestimonial]);
+
+	const renderTestimonialCard = () => {
+		return testimonial?.map(testimonial => (
 			<CustomCard
 				key={testimonial.id}
 				className="w-[88%] ms-5 h-60 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
 				shadow="sm"
 			>
 				<div className="flex flex-col items-center justify-center gap-5 h-full p-5 text-center">
-					<p className="text-lg italic text-slate-gray">“{testimonial.description}”</p>
+					<p className="text-lg italic text-slate-gray line-clamp-4">“{testimonial.message}”</p>
 					<div className="flex justify-between w-full">
 						<div className="flex flex-col text-start">
 							<h1 className="font-[900] text-xl text-night-black">{testimonial.name}</h1>

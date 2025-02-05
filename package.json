@@ -24,6 +24,7 @@
     "@nextui-org/react": "^2.6.11",
     "@react-aria/visually-hidden": "3.8.12",
     "@react-types/shared": "3.26.0",
+    "axios": "^1.7.9",
     "clsx": "2.1.1",
     "dayjs": "^1.11.13",
     "formik": "^2.4.6",

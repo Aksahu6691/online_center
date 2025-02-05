@@ -1,4 +1,4 @@
-import { ResponsiveConfig } from '@/types/commont.type';
+import { ResponsiveConfig } from '@/types/common.type';
 
 export const APP_ROUTES = {
 	ROOT: '/',
