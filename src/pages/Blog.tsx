@@ -5,19 +5,22 @@ import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import CustomCard from '@/components/common/CustomCard';
 import ScreenWrapper from '@/components/ScreenWrapper';
 import useAppNavigate from '@/hooks/useAppNavigate';
-import { isArrayEmpty } from '@/utils/utils';
+import BlogCardSkeleton from './skeletons/BlogCardSkeleton';
 
 const Blog = () => {
 	const navigate = useAppNavigate();
 	const { getBlogs } = useBlogApi();
 
 	const [blogData, setBlogData] = useState<IBlogResponse[]>([]);
+	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
 	const fetchBlog = useCallback(async () => {
+		setIsSkeletonVisible(true);
 		const { response, success } = await getBlogs();
 		if (success) {
 			setBlogData(response?.data || []);
 		}
+		setIsSkeletonVisible(false);
 	}, [getBlogs]);
 
 	useEffect(() => {
@@ -25,7 +28,9 @@ const Blog = () => {
 	}, [fetchBlog]);
 
 	const renderBlogCards = () => {
-		if (isArrayEmpty(blogData)) return;
+		if (isSkeletonVisible) {
+			return <BlogCardSkeleton count={10} />;
+		}
 
 		return blogData?.map(blog => (
 			<CustomCard

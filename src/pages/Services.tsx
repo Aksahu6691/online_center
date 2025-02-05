@@ -4,17 +4,21 @@ import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import CustomCard from '@/components/common/CustomCard';
 import ScreenWrapper from '@/components/ScreenWrapper';
 import { useCallback, useEffect, useState } from 'react';
+import ServicesCardSkeleton from './skeletons/ServicesCardSkeleton';
 
 const Services = () => {
 	const { getServices } = useServicesApi();
 
 	const [servicesData, setServicesData] = useState<IServiceResponse[]>([]);
+	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
 	const fetchServices = useCallback(async () => {
+		setIsSkeletonVisible(true);
 		const { response, success } = await getServices();
 		if (success) {
 			setServicesData(response?.data || []);
 		}
+		setIsSkeletonVisible(false);
 	}, [getServices]);
 
 	useEffect(() => {
@@ -22,13 +26,17 @@ const Services = () => {
 	}, [fetchServices]);
 
 	const renderServiceCard = () => {
+		if (isSkeletonVisible) {
+			return <ServicesCardSkeleton count={8} />;
+		}
+
 		return servicesData?.map(service => (
 			<CustomCard
 				key={service.id}
-				className="h-72 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg p-3 cursor-pointer"
+				className="h-80 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg p-3 cursor-pointer"
 				shadow="sm"
 			>
-				<div className="flex flex-col items-center justify-center gap-3 h-full p-5 text-center">
+				<div className="flex flex-col items-center justify-between gap-3 h-full text-center">
 					<img src={service.image} alt="error" className="w-full h-[50%] overflow-hidden" />
 					<h3 className="text-xl font-bold mb-4">{service.title}</h3>
 					<p className="text-sm text-slate-gray">{service.description}</p>

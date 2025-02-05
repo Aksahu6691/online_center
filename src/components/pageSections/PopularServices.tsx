@@ -4,17 +4,21 @@ import CustomCard from '../common/CustomCard';
 import { CircleHafImage } from '@/assets/images';
 import useServicesApi from '@/api/services/useServicesApi';
 import { IServiceResponse } from '@/api/services/services.types';
+import ServicesHomePageSkeleton from '@/pages/skeletons/ServicesHomePageSkeleton';
 
 const PopularServices = () => {
 	const { getServices } = useServicesApi();
 
 	const [servicesData, setServicesData] = useState<IServiceResponse[]>([]);
+	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
 	const fetchServices = useCallback(async () => {
+		setIsSkeletonVisible(true);
 		const { response, success } = await getServices();
 		if (success) {
 			setServicesData(response?.data || []);
 		}
+		setIsSkeletonVisible(false);
 	}, [getServices]);
 
 	useEffect(() => {
@@ -22,15 +26,19 @@ const PopularServices = () => {
 	}, [fetchServices]);
 
 	const renderServiceCard = () => {
+		if (isSkeletonVisible) {
+			return [...Array(8)].map((_, index) => <ServicesHomePageSkeleton key={index} />);
+		}
+
 		return servicesData?.map(service => (
 			<CustomCard
 				key={service.id}
 				className="w-[85%] ms-5 h-80 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer"
 				shadow="sm"
 			>
-				<div className="flex flex-col items-center justify-center gap-3 h-full p-5 text-center">
+				<div className="flex flex-col items-center justify-between gap-3 h-full p-3 text-center">
 					<img src={service.image} alt="error" className="w-full h-[50%] overflow-hidden" />
-					<h3 className="text-xl font-bold mb-4">{service.title}</h3>
+					<h3 className="text-xl font-bold mb-3">{service.title}</h3>
 					<p className="text-sm text-slate-gray">{service.description}</p>
 				</div>
 			</CustomCard>

@@ -5,6 +5,7 @@ import useAppNavigate from '@/hooks/useAppNavigate';
 import useBlogApi from '@/api/blog/useBlogApi';
 import { useCallback, useEffect, useState } from 'react';
 import { IBlogResponse } from '@/api/blog/blog.types';
+import RecentBlogCardSkeleton from './skeletons/RecentBlogCardSkeleton';
 
 const BlogView = () => {
 	const { blogId } = useParams();
@@ -13,6 +14,7 @@ const BlogView = () => {
 
 	const [blogData, setBlogData] = useState<IBlogResponse | null>(null);
 	const [resentBlogs, setResentBlogs] = useState<IBlogResponse[]>([]);
+	const [isRecentBlogsSkeletonVisible, setIsRecentBlogsSkeletonVisible] = useState(false);
 
 	const fetchBlog = useCallback(async () => {
 		if (!blogId) return;
@@ -23,10 +25,12 @@ const BlogView = () => {
 	}, [getBlogById, blogId]);
 
 	const fetchResentBlogs = useCallback(async () => {
+		setIsRecentBlogsSkeletonVisible(true);
 		const { response, success } = await getBlogs(2);
 		if (success) {
 			setResentBlogs(response?.data || []);
 		}
+		setIsRecentBlogsSkeletonVisible(false);
 	}, [getBlogs]);
 
 	useEffect(() => {
@@ -35,6 +39,10 @@ const BlogView = () => {
 	}, [fetchBlog, fetchResentBlogs]);
 
 	const renderBlogCards = () => {
+		if (isRecentBlogsSkeletonVisible) {
+			return <RecentBlogCardSkeleton count={2} />;
+		}
+
 		return resentBlogs?.map(blog => (
 			<CustomCard
 				key={blog.id}

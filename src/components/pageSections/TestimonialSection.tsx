@@ -5,17 +5,21 @@ import CustomCarousel from '../common/CustomCarousel';
 import { QuoteImage, TestimonialsLeftImage, TestimonialsRightImage } from '@/assets/images';
 import useTestimonialApi from '@/api/testimonial/useTestimonialApi';
 import { ITestimonialResponse } from '@/api/testimonial/testimonial.types';
+import TestimonialCardSkeleton from '@/pages/skeletons/TestimonialCardSkeleton';
 
 const TestimonialSection = () => {
 	const { getTestimonials } = useTestimonialApi();
 
 	const [testimonial, setTestimonial] = useState<ITestimonialResponse[]>([]);
+	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
 	const fetchTestimonial = useCallback(async () => {
+		setIsSkeletonVisible(true);
 		const { response, success } = await getTestimonials();
 		if (success) {
 			setTestimonial(response?.data || []);
 		}
+		setIsSkeletonVisible(false);
 	}, [getTestimonials]);
 
 	useEffect(() => {
@@ -23,6 +27,10 @@ const TestimonialSection = () => {
 	}, [fetchTestimonial]);
 
 	const renderTestimonialCard = () => {
+		if (isSkeletonVisible) {
+			return [...Array(8)].map((_, index) => <TestimonialCardSkeleton key={index} />);
+		}
+
 		return testimonial?.map(testimonial => (
 			<CustomCard
 				key={testimonial.id}
@@ -30,7 +38,7 @@ const TestimonialSection = () => {
 				shadow="sm"
 			>
 				<div className="flex flex-col items-center justify-center gap-5 h-full p-5 text-center">
-					<p className="text-lg italic text-slate-gray line-clamp-4">“{testimonial.message}”</p>
+					<p className="text-lg italic text-slate-gray leading-6 line-clamp-4">“{testimonial.message}”</p>
 					<div className="flex justify-between w-full">
 						<div className="flex flex-col text-start">
 							<h1 className="font-[900] text-xl text-night-black">{testimonial.name}</h1>
