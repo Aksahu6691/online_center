@@ -1,16 +1,33 @@
+import { useCallback, useEffect, useState } from 'react';
+import { IBlogResponse } from '@/api/blog/blog.types';
+import useBlogApi from '@/api/blog/useBlogApi';
 import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import CustomCard from '@/components/common/CustomCard';
 import ScreenWrapper from '@/components/ScreenWrapper';
 import useAppNavigate from '@/hooks/useAppNavigate';
-import { blogData } from '@/store/data';
 import { isArrayEmpty } from '@/utils/utils';
 
 const Blog = () => {
 	const navigate = useAppNavigate();
+	const { getBlogs } = useBlogApi();
+
+	const [blogData, setBlogData] = useState<IBlogResponse[]>([]);
+
+	const fetchBlog = useCallback(async () => {
+		const { response, success } = await getBlogs();
+		if (success) {
+			setBlogData(response?.data || []);
+		}
+	}, [getBlogs]);
+
+	useEffect(() => {
+		fetchBlog();
+	}, [fetchBlog]);
 
 	const renderBlogCards = () => {
-		if (!blogData || isArrayEmpty(blogData)) return;
-		return blogData.map(blog => (
+		if (isArrayEmpty(blogData)) return;
+
+		return blogData?.map(blog => (
 			<CustomCard
 				key={blog.id}
 				className="h-full transition-all duration-300 ease-in-out hover:scale-105 cursor-pointer"
@@ -23,9 +40,9 @@ const Blog = () => {
 					<h2 className="font-bold text-lg text-night-black line-clamp-1">{blog.title}</h2>
 					<p className="text-slate-gray mt-2 line-clamp-4">{blog.description}</p>
 					<div className="flex items-center mt-4">
-						<img src={blog.authorImage} alt={blog.author} className="w-10 h-10 rounded-full" />
+						<img src={blog.image} alt="error" className="w-10 h-10 rounded-full" />
 						<div className="ml-3">
-							<p className="text-sm font-medium">{blog.author}</p>
+							<p className="text-sm font-medium">{blog?.author?.name}</p>
 							<p className="text-xs text-slate-gray">{blog.uploadedDate}</p>
 						</div>
 					</div>

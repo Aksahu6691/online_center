@@ -7,14 +7,20 @@ const useBlogApi = () => {
 	const { get } = useHttpMethodContext();
 
 	const getBlogs = useCallback(
-		async (id?: string): Promise<IApiResponseData<IBlogResponse[]>> => {
-			const endpoint = id ? `/blog/get/${id}` : `/blog/get`;
-			return await get<IBlogResponse[]>(endpoint);
+		async (limit?: number): Promise<IApiResponseData<IBlogResponse[]>> => {
+			return await get<IBlogResponse[]>(`/blog/get?limit=${limit}`);
 		},
 		[get]
 	);
 
-	return { getBlogs };
+	const getBlogById = useCallback(
+		async (id: string): Promise<IApiResponseData<IBlogResponse>> => {
+			return await get<IBlogResponse>(`/blog/get/${id}`);
+		},
+		[get]
+	);
+
+	return { getBlogs, getBlogById };
 };
 
 export default useBlogApi;
