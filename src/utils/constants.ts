@@ -3,6 +3,7 @@ import { ICustomDropdownMenuItem, ResponsiveConfig } from '@/types/common.type';
 export const APP_ROUTES = {
 	ROOT: '/',
 	ERROR: '/error',
+	LOGIN: '/login',
 
 	APP: {
 		ROOT: '/app',
@@ -61,11 +62,6 @@ export const navBarMenuItems: ICustomDropdownMenuItem[] = [
 		isHidden: false
 	},
 	{
-		key: 'logout',
-		title: 'Logout',
-		color: 'danger'
-	},
-	{
 		key: 'settings',
 		title: 'Settings'
 	},
@@ -73,5 +69,10 @@ export const navBarMenuItems: ICustomDropdownMenuItem[] = [
 		key: 'help',
 		title: 'Help',
 		color: 'warning'
+	},
+	{
+		key: 'logout',
+		title: 'Logout',
+		color: 'danger'
 	}
 ];

@@ -1,16 +1,20 @@
-import useAppNavigate from '@/hooks/useAppNavigate';
 import { useEffect } from 'react';
+import useVerifyLogin from '@/hooks/useVerifyLogin';
+import useAppStore from '@/store/appStore';
 
 interface IAuthenticatedRouteProps {
 	children: React.ReactNode;
 }
 
 const AuthenticatedRoute = (children: IAuthenticatedRouteProps) => {
-	const navigate = useAppNavigate();
+	const { isUserLoggedIn } = useAppStore();
+	const verifyLogin = useVerifyLogin();
 
 	useEffect(() => {
-		navigate.toHome({ replace: true });
-	}, [navigate]);
+		if (!isUserLoggedIn) {
+			verifyLogin();
+		}
+	}, [isUserLoggedIn, verifyLogin]);
 
 	return <>{children}</>;
 };

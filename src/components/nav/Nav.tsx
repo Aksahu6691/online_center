@@ -1,24 +1,25 @@
 import { useState, useEffect, Key } from 'react';
-import Cookies from 'js-cookie';
 import { LogoImage } from '@/assets/images';
 import CustomAvatar from '../common/CustomAvatar';
 import CustomSearchInput from '../common/CustomSearchInput';
 import { CloseIcon, MenuIcon, SearchIcon } from '@/assets/icons';
 import { Link, useLocation } from 'react-router';
 import { cn } from '@nextui-org/react';
-import { users } from '@/store/data';
+import { users } from '@/helpers/data';
 import { navBarMenuItems, NAVIGATION_ROUTES } from '@/utils/constants';
 import CustomButtonIcon from '../common/CustomButtonIcon';
 import CustomDropdownMenu from '../common/CustomDropdownMenu';
 import useAppStore from '@/store/appStore';
+import useLogout from '@/hooks/useLogout';
 
 const Nav = () => {
 	const { pathname } = useLocation();
+	const logout = useLogout();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-	const token = Cookies.get('access_token');
-	const userDetails = useAppStore(state => state.userDetails);
-	console.log('userDetails & token', userDetails, token);
+	const authenticatedUser = useAppStore(state => state.authenticatedUser);
+	const accessToken = useAppStore(state => state.accessToken);
+	console.log('authenticatedUser & token', authenticatedUser, accessToken);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -26,7 +27,9 @@ const Nav = () => {
 	}, [pathname]);
 
 	const handleNavBarMenuAction = (key: Key) => {
-		console.log('key', key);
+		if (key === 'logout') {
+			logout();
+		}
 	};
 
 	const renderDesktopNavigation = () => {

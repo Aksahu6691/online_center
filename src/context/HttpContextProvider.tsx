@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useMemo } from 'react';
-import envConfig from '../config/env.config';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import envConfig from '../config/env.config';
 import { getMessageFromError } from '../utils/utils';
 import useAppStore from '../store/appStore';
 import { IApiResponseData } from '@/types/common.type';
@@ -25,13 +26,28 @@ const AxiosService = axios.create({
 
 export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const setIsAppLoading = useAppStore(state => state.setIsAppLoading);
+	const token = Cookies.get('refreshToken');
+	// const accessToken = useAppStore(state => state.accessToken);
+	// const isUserLoggedIn = useAppStore(state => state.isUserLoggedIn);
 
 	AxiosService.defaults.headers.common.Accept = 'application/json';
 	AxiosService.defaults.headers.common['Content-Type'] = 'application/json';
 
+	const attachToken = useCallback(async () => {
+		AxiosService.defaults.headers.common.Authorization = `Bearer ${token}`;
+
+		// Will use later
+		// if (!isUserLoggedIn && !accessToken) {
+		// 	AxiosService.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+		// }
+		// console.log('accessToken not found', accessToken);
+	}, [token]);
+
 	const get = useCallback(
 		async <RT,>(endpoint: string, headers = {}, showLoading = false): Promise<IApiResponseData<RT>> => {
 			if (showLoading) setIsAppLoading(true);
+
+			await attachToken();
 
 			return AxiosService.get(endpoint, { headers })
 				.then(res => {
@@ -49,7 +65,7 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 					if (showLoading) setIsAppLoading(false);
 				});
 		},
-		[setIsAppLoading]
+		[setIsAppLoading, attachToken]
 	);
 
 	const post = useCallback(
@@ -60,6 +76,8 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 			showLoading = false
 		): Promise<IApiResponseData<RT>> => {
 			if (showLoading) setIsAppLoading(true);
+
+			await attachToken();
 
 			return AxiosService.post(endpoint, requestBody, { headers })
 				.then(res => {
@@ -76,7 +94,7 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 					if (showLoading) setIsAppLoading(false);
 				});
 		},
-		[setIsAppLoading]
+		[setIsAppLoading, attachToken]
 	);
 
 	const put = useCallback(
@@ -87,6 +105,8 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 			showLoading = false
 		): Promise<IApiResponseData<RT>> => {
 			if (showLoading) setIsAppLoading(true);
+
+			await attachToken();
 
 			return AxiosService.put(endpoint, requestBody, { headers })
 				.then(res => {
@@ -103,7 +123,7 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 					if (showLoading) setIsAppLoading(false);
 				});
 		},
-		[setIsAppLoading]
+		[setIsAppLoading, attachToken]
 	);
 
 	const patch = useCallback(
@@ -114,6 +134,8 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 			showLoading = false
 		): Promise<IApiResponseData<RT>> => {
 			if (showLoading) setIsAppLoading(true);
+
+			await attachToken();
 
 			return AxiosService.patch(endpoint, requestBody, { headers })
 				.then(res => {
@@ -130,12 +152,14 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 					if (showLoading) setIsAppLoading(false);
 				});
 		},
-		[setIsAppLoading]
+		[setIsAppLoading, attachToken]
 	);
 
 	const deleteMe = useCallback(
 		async <RT,>(endpoint: string, headers = {}, showLoading = false): Promise<IApiResponseData<RT>> => {
 			if (showLoading) setIsAppLoading(true);
+
+			await attachToken();
 
 			return AxiosService.delete(endpoint, { headers })
 				.then(res => {
@@ -152,7 +176,7 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 					if (showLoading) setIsAppLoading(false);
 				});
 		},
-		[setIsAppLoading]
+		[setIsAppLoading, attachToken]
 	);
 
 	const contextValue = useMemo(() => ({ get, post, put, deleteMe, patch }), [get, post, put, deleteMe, patch]);

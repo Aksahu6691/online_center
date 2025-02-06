@@ -1,7 +1,7 @@
 import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import CustomCard from '@/components/common/CustomCard';
 import ScreenWrapper from '@/components/ScreenWrapper';
-import { statusBarData } from '@/store/data';
+import { statusBarData } from '@/helpers/data';
 
 const Contact = () => {
 	const renderLeftContent = () => {

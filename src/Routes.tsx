@@ -8,12 +8,18 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogView from './pages/BlogView';
+import NotFound from './components/NotFound';
+import ErrorPage from './components/routes/ErrorPage';
 
 const Routes = () => {
 	return (
 		<BrowserRouter>
 			<AppRoutes>
 				<Route path={APP_ROUTES.ROOT} element={<Login />} />
+				<Route path={APP_ROUTES.LOGIN} element={<Login />} />
+
+				<Route path={APP_ROUTES.ERROR} element={<ErrorPage />} />
+				<Route path="*" element={<NotFound />} />
 
 				{/* Authenticated routes */}
 				<Route

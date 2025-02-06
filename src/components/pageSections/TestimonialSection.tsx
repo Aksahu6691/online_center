@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { responsiveTestimonials } from '@/store/data';
+import { responsiveTestimonials } from '@/helpers/data';
 import CustomCard from '../common/CustomCard';
 import CustomCarousel from '../common/CustomCarousel';
 import { QuoteImage, TestimonialsLeftImage, TestimonialsRightImage } from '@/assets/images';

@@ -1,5 +1,6 @@
 export interface ILoginResponse {
-	token: string;
+	refreshToken: string;
+	accessToken: string;
 	user: {
 		id: string;
 		name: string;
@@ -14,4 +15,8 @@ export interface ILoginResponse {
 export interface ILoginRequestBody {
 	email: string;
 	password: string;
+}
+
+export interface IVerifyUserRequestBody {
+	refreshToken: string;
 }

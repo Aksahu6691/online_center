@@ -3,7 +3,7 @@ import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import CustomCard from '@/components/common/CustomCard';
 import TeamMemberSection from '@/components/pageSections/TeamMemberSection';
 import ScreenWrapper from '@/components/ScreenWrapper';
-import { aboutUsCardData } from '@/store/data';
+import { aboutUsCardData } from '@/helpers/data';
 
 const About = () => {
 	const renderAboutUsCard = () => {

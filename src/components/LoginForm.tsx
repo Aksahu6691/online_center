@@ -13,8 +13,7 @@ import showToast from '@/utils/showToast';
 const LoginForm = () => {
 	const navigation = useAppNavigate();
 	const { loginUser } = useAuthApi();
-	const setIsAppLoading = useAppStore(state => state.setIsAppLoading);
-	const setUserDetails = useAppStore(state => state.setUserDetails);
+	const { setIsAppLoading, setAuthenticatedUser, setIsUserLoggedIn, setAccessToken } = useAppStore();
 
 	const initialValues: ILoginFormSchema = {
 		email: '',
@@ -23,21 +22,24 @@ const LoginForm = () => {
 
 	const handelSubmitValue = async (values: ILoginFormSchema) => {
 		setIsAppLoading(true);
-		const { response, success } = await loginUser(values);
-		console.log('response', response);
+		const { response, success, errorMsg } = await loginUser(values);
+		setIsAppLoading(false);
+
 		if (success && response) {
 			showToast('Login successfully', 'success');
-			setUserDetails(response.user);
-			// Will use later
-			Cookies.set('access_token', response?.token, {
-				expires: 1,
+			setAuthenticatedUser(response.user);
+			setAccessToken(response.accessToken);
+			setIsUserLoggedIn(true);
+			Cookies.set('refreshToken', response?.refreshToken, {
+				expires: 7, // 7 days
 				path: '/',
 				secure: true,
 				sameSite: 'Strict'
 			});
 			navigation.toHome();
+			return;
 		}
-		setIsAppLoading(false);
+		showToast(errorMsg, 'error');
 	};
 
 	return (

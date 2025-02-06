@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { IApiResponseData } from '@/types/common.type';
 import { useHttpMethodContext } from '@/context/HttpContextProvider';
-import { ILoginRequestBody, ILoginResponse } from './auth.types';
+import { ILoginRequestBody, ILoginResponse, IVerifyUserRequestBody } from './auth.types';
 
 const useAuthApi = () => {
 	const { post } = useHttpMethodContext();
@@ -13,7 +13,15 @@ const useAuthApi = () => {
 		[post]
 	);
 
-	return { loginUser };
+	const verifyLoginUser = useCallback(
+		async (requestBody: IVerifyUserRequestBody): Promise<IApiResponseData<ILoginResponse>> => {
+			const response = await post<ILoginResponse>(`/user/verify-login`, requestBody);
+			return response;
+		},
+		[post]
+	);
+
+	return { loginUser, verifyLoginUser };
 };
 
 export default useAuthApi;
