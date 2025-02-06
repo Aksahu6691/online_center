@@ -37,7 +37,7 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 				.then(res => {
 					return {
 						success: true,
-						response: res?.data,
+						response: res?.data?.data || res?.data,
 						errorMsg: ''
 					};
 				})

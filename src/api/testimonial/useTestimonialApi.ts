@@ -7,9 +7,9 @@ const useTestimonialApi = () => {
 	const { get } = useHttpMethodContext();
 
 	const getTestimonials = useCallback(
-		async (id?: string): Promise<IApiResponseData<ITestimonialResponse[]>> => {
+		async (id?: string): Promise<IApiResponseData<ITestimonialResponse>> => {
 			const endpoint = id ? `/testimonial/get/${id}` : `/testimonial/get`;
-			return await get<ITestimonialResponse[]>(endpoint);
+			return await get<ITestimonialResponse>(endpoint);
 		},
 		[get]
 	);

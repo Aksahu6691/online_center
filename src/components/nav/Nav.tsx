@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Key } from 'react';
+import Cookies from 'js-cookie';
 import { LogoImage } from '@/assets/images';
 import CustomAvatar from '../common/CustomAvatar';
 import CustomSearchInput from '../common/CustomSearchInput';
@@ -6,17 +7,27 @@ import { CloseIcon, MenuIcon, SearchIcon } from '@/assets/icons';
 import { Link, useLocation } from 'react-router';
 import { cn } from '@nextui-org/react';
 import { users } from '@/store/data';
-import { NAVIGATION_ROUTES } from '@/utils/constants';
+import { navBarMenuItems, NAVIGATION_ROUTES } from '@/utils/constants';
 import CustomButtonIcon from '../common/CustomButtonIcon';
+import CustomDropdownMenu from '../common/CustomDropdownMenu';
+import useAppStore from '@/store/appStore';
 
 const Nav = () => {
 	const { pathname } = useLocation();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+	const token = Cookies.get('access_token');
+	const userDetails = useAppStore(state => state.userDetails);
+	console.log('userDetails & token', userDetails, token);
+
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		setIsMenuOpen(false);
 	}, [pathname]);
+
+	const handleNavBarMenuAction = (key: Key) => {
+		console.log('key', key);
+	};
 
 	const renderDesktopNavigation = () => {
 		return Object.entries(NAVIGATION_ROUTES).map(([key, route]) => (
@@ -51,10 +62,17 @@ const Nav = () => {
 						{key.charAt(0) + key.slice(1).toLowerCase()}
 					</Link>
 				))}
-				{/* Search Input in Mobile */}
 				<CustomSearchInput items={users} StartContent={<SearchIcon />} placeholder="Search users..." className="w-64" />
-				{/* Avatar */}
-				<CustomAvatar src="" showFallback={true} name="User Name" className={{ name: 'text-white' }} />
+				<CustomDropdownMenu showArrow={false} items={navBarMenuItems} onAction={handleNavBarMenuAction}>
+					<div>
+						<CustomAvatar
+							src=""
+							showFallback={true}
+							name="User Name"
+							className={{ name: 'text-white', base: 'cursor-pointer' }}
+						/>
+					</div>
+				</CustomDropdownMenu>
 			</div>
 		);
 	};
@@ -72,7 +90,16 @@ const Nav = () => {
 			{/* Search & Avatar */}
 			<div className="hidden md:flex gap-2 justify-between items-center w-[36%] 2xl:w-[30%]">
 				<CustomSearchInput items={users} StartContent={<SearchIcon />} placeholder="Search users..." className="w-64" />
-				<CustomAvatar src="" showFallback={true} name="User Name" className={{ name: 'text-white min-w-20' }} />
+				<CustomDropdownMenu showArrow={false} items={navBarMenuItems} onAction={handleNavBarMenuAction}>
+					<div>
+						<CustomAvatar
+							src=""
+							showFallback={true}
+							name="User Name"
+							className={{ name: 'text-white min-w-20', base: 'cursor-pointer' }}
+						/>
+					</div>
+				</CustomDropdownMenu>
 			</div>
 
 			{/* Mobile Menu Button */}

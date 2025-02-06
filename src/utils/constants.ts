@@ -1,4 +1,4 @@
-import { ResponsiveConfig } from '@/types/common.type';
+import { ICustomDropdownMenuItem, ResponsiveConfig } from '@/types/common.type';
 
 export const APP_ROUTES = {
 	ROOT: '/',
@@ -49,3 +49,29 @@ export const Responsive: ResponsiveConfig = {
 		slidesToSlide: 1 // Number of items to slide at a time
 	}
 };
+
+export const navBarMenuItems: ICustomDropdownMenuItem[] = [
+	{
+		key: 'profile',
+		title: 'Profile'
+	},
+	{
+		key: 'adminPanel',
+		title: 'Admin Panel',
+		isHidden: false
+	},
+	{
+		key: 'logout',
+		title: 'Logout',
+		color: 'danger'
+	},
+	{
+		key: 'settings',
+		title: 'Settings'
+	},
+	{
+		key: 'help',
+		title: 'Help',
+		color: 'warning'
+	}
+];

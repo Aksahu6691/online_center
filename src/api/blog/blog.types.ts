@@ -1,4 +1,4 @@
-export interface IBlogResponse {
+export interface IBlogResponseData {
 	id: string;
 	title: string;
 	description: string;
@@ -9,4 +9,13 @@ export interface IBlogResponse {
 		name: string;
 		photo: string;
 	} | null;
+}
+
+export interface IBlogResponse {
+	currentDataSize: number;
+	totalDataSize: number;
+	totalPages: number;
+	currentPage: number;
+	hasMore: boolean;
+	blogs: IBlogResponseData[];
 }

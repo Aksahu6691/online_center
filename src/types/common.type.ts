@@ -24,7 +24,7 @@ export interface ResponsiveConfig {
 	};
 }
 
-interface IResponse<T> {
+export interface IResponse<T> {
 	currentDataSize?: number;
 	totalDataSize?: number;
 	totalPages?: number;
@@ -36,5 +36,15 @@ interface IResponse<T> {
 export interface IApiResponseData<T> {
 	success: boolean;
 	errorMsg: string;
-	response?: IResponse<T>;
+	response?: T | null;
+}
+
+export interface IGlobalUserDetails {
+	id: string;
+	name: string;
+	email: string;
+	photo: string;
+	role: string;
+	designation: string;
+	status: string;
 }

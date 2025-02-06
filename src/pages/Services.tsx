@@ -1,4 +1,4 @@
-import { IServiceResponse } from '@/api/services/services.types';
+import { IServiceResponseData } from '@/api/services/services.types';
 import useServicesApi from '@/api/services/useServicesApi';
 import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import CustomCard from '@/components/common/CustomCard';
@@ -9,14 +9,14 @@ import ServicesCardSkeleton from './skeletons/ServicesCardSkeleton';
 const Services = () => {
 	const { getServices } = useServicesApi();
 
-	const [servicesData, setServicesData] = useState<IServiceResponse[]>([]);
+	const [servicesData, setServicesData] = useState<IServiceResponseData[]>([]);
 	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
 	const fetchServices = useCallback(async () => {
 		setIsSkeletonVisible(true);
 		const { response, success } = await getServices();
 		if (success) {
-			setServicesData(response?.data || []);
+			setServicesData(response?.services || []);
 		}
 		setIsSkeletonVisible(false);
 	}, [getServices]);

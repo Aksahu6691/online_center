@@ -1,26 +1,43 @@
 import { Spacer } from '@nextui-org/react';
 import { Formik, FormikProps } from 'formik';
+import Cookies from 'js-cookie';
 import CustomInput from './common/CustomInput';
 import useAppNavigate from '@/hooks/useAppNavigate';
 import { ValidateLoginForm } from '@/utils/validationSchema';
 import CustomButton from './common/CustomButton';
 import { ILoginFormSchema } from '@/types/schema.type';
 import useAppStore from '@/store/appStore';
+import useAuthApi from '@/api/auth/useAuthApi';
+import showToast from '@/utils/showToast';
 
 const LoginForm = () => {
 	const navigation = useAppNavigate();
+	const { loginUser } = useAuthApi();
 	const setIsAppLoading = useAppStore(state => state.setIsAppLoading);
+	const setUserDetails = useAppStore(state => state.setUserDetails);
 
 	const initialValues: ILoginFormSchema = {
 		email: '',
 		password: ''
 	};
 
-	const handelSubmitValue = (values: ILoginFormSchema) => {
-		console.log('values', values);
-		navigation.toHome();
+	const handelSubmitValue = async (values: ILoginFormSchema) => {
 		setIsAppLoading(true);
-		setTimeout(() => setIsAppLoading(false), 3000);
+		const { response, success } = await loginUser(values);
+		console.log('response', response);
+		if (success && response) {
+			showToast('Login successfully', 'success');
+			setUserDetails(response.user);
+			// Will use later
+			Cookies.set('access_token', response?.token, {
+				expires: 1,
+				path: '/',
+				secure: true,
+				sameSite: 'Strict'
+			});
+			navigation.toHome();
+		}
+		setIsAppLoading(false);
 	};
 
 	return (

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { IBlogResponse } from '@/api/blog/blog.types';
+import { IBlogResponseData } from '@/api/blog/blog.types';
 import useBlogApi from '@/api/blog/useBlogApi';
 import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import CustomCard from '@/components/common/CustomCard';
@@ -11,14 +11,14 @@ const Blog = () => {
 	const navigate = useAppNavigate();
 	const { getBlogs } = useBlogApi();
 
-	const [blogData, setBlogData] = useState<IBlogResponse[]>([]);
+	const [blogData, setBlogData] = useState<IBlogResponseData[]>([]);
 	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
 	const fetchBlog = useCallback(async () => {
 		setIsSkeletonVisible(true);
 		const { response, success } = await getBlogs();
 		if (success) {
-			setBlogData(response?.data || []);
+			setBlogData(response?.blogs || []);
 		}
 		setIsSkeletonVisible(false);
 	}, [getBlogs]);

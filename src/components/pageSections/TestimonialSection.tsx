@@ -4,20 +4,20 @@ import CustomCard from '../common/CustomCard';
 import CustomCarousel from '../common/CustomCarousel';
 import { QuoteImage, TestimonialsLeftImage, TestimonialsRightImage } from '@/assets/images';
 import useTestimonialApi from '@/api/testimonial/useTestimonialApi';
-import { ITestimonialResponse } from '@/api/testimonial/testimonial.types';
+import { ITestimonialResponseData } from '@/api/testimonial/testimonial.types';
 import TestimonialCardSkeleton from '@/pages/skeletons/TestimonialCardSkeleton';
 
 const TestimonialSection = () => {
 	const { getTestimonials } = useTestimonialApi();
 
-	const [testimonial, setTestimonial] = useState<ITestimonialResponse[]>([]);
+	const [testimonial, setTestimonial] = useState<ITestimonialResponseData[]>([]);
 	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
 	const fetchTestimonial = useCallback(async () => {
 		setIsSkeletonVisible(true);
 		const { response, success } = await getTestimonials();
 		if (success) {
-			setTestimonial(response?.data || []);
+			setTestimonial(response?.testimonials || []);
 		}
 		setIsSkeletonVisible(false);
 	}, [getTestimonials]);

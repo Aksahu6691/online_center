@@ -4,7 +4,7 @@ import CustomCard from '@/components/common/CustomCard';
 import useAppNavigate from '@/hooks/useAppNavigate';
 import useBlogApi from '@/api/blog/useBlogApi';
 import { useCallback, useEffect, useState } from 'react';
-import { IBlogResponse } from '@/api/blog/blog.types';
+import { IBlogResponseData } from '@/api/blog/blog.types';
 import RecentBlogCardSkeleton from './skeletons/RecentBlogCardSkeleton';
 
 const BlogView = () => {
@@ -12,15 +12,15 @@ const BlogView = () => {
 	const navigate = useAppNavigate();
 	const { getBlogs, getBlogById } = useBlogApi();
 
-	const [blogData, setBlogData] = useState<IBlogResponse | null>(null);
-	const [resentBlogs, setResentBlogs] = useState<IBlogResponse[]>([]);
+	const [blogData, setBlogData] = useState<IBlogResponseData | null>(null);
+	const [resentBlogs, setResentBlogs] = useState<IBlogResponseData[]>([]);
 	const [isRecentBlogsSkeletonVisible, setIsRecentBlogsSkeletonVisible] = useState(false);
 
 	const fetchBlog = useCallback(async () => {
 		if (!blogId) return;
 		const { response, success } = await getBlogById(blogId);
 		if (success) {
-			setBlogData(response?.data || null);
+			setBlogData(response || null);
 		}
 	}, [getBlogById, blogId]);
 
@@ -28,7 +28,7 @@ const BlogView = () => {
 		setIsRecentBlogsSkeletonVisible(true);
 		const { response, success } = await getBlogs(2);
 		if (success) {
-			setResentBlogs(response?.data || []);
+			setResentBlogs(response?.blogs || []);
 		}
 		setIsRecentBlogsSkeletonVisible(false);
 	}, [getBlogs]);

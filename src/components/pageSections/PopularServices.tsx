@@ -3,20 +3,20 @@ import CustomCarousel from '../common/CustomCarousel';
 import CustomCard from '../common/CustomCard';
 import { CircleHafImage } from '@/assets/images';
 import useServicesApi from '@/api/services/useServicesApi';
-import { IServiceResponse } from '@/api/services/services.types';
+import { IServiceResponseData } from '@/api/services/services.types';
 import ServicesHomePageSkeleton from '@/pages/skeletons/ServicesHomePageSkeleton';
 
 const PopularServices = () => {
 	const { getServices } = useServicesApi();
 
-	const [servicesData, setServicesData] = useState<IServiceResponse[]>([]);
+	const [servicesData, setServicesData] = useState<IServiceResponseData[]>([]);
 	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
 	const fetchServices = useCallback(async () => {
 		setIsSkeletonVisible(true);
 		const { response, success } = await getServices();
 		if (success) {
-			setServicesData(response?.data || []);
+			setServicesData(response?.services || []);
 		}
 		setIsSkeletonVisible(false);
 	}, [getServices]);

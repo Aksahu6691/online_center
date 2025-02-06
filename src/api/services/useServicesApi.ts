@@ -7,9 +7,9 @@ const useServicesApi = () => {
 	const { get } = useHttpMethodContext();
 
 	const getServices = useCallback(
-		async (serviceId?: string): Promise<IApiResponseData<IServiceResponse[]>> => {
+		async (serviceId?: string): Promise<IApiResponseData<IServiceResponse>> => {
 			const endpoint = serviceId ? `/service/get/${serviceId}` : `/service/get`;
-			return await get<IServiceResponse[]>(endpoint);
+			return await get<IServiceResponse>(endpoint);
 		},
 		[get]
 	);
