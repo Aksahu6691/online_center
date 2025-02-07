@@ -10,6 +10,7 @@ import Blog from './pages/Blog';
 import BlogView from './pages/BlogView';
 import NotFound from './components/NotFound';
 import ErrorPage from './components/routes/ErrorPage';
+import AdminPanel from './pages/AdminPanel';
 
 const Routes = () => {
 	return (
@@ -36,6 +37,7 @@ const Routes = () => {
 					<Route path={APP_ROUTES.APP.BLOG.BLOG_VIEW(':blogId')} element={<BlogView />} />
 					<Route path={APP_ROUTES.APP.ABOUT} element={<About />} />
 					<Route path={APP_ROUTES.APP.CONTACT} element={<Contact />} />
+					<Route path={APP_ROUTES.APP.ADMIN} element={<AdminPanel />} />
 				</Route>
 			</AppRoutes>
 		</BrowserRouter>

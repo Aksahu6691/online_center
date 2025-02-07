@@ -9,17 +9,14 @@ import { users } from '@/helpers/data';
 import { navBarMenuItems, NAVIGATION_ROUTES } from '@/utils/constants';
 import CustomButtonIcon from '../common/CustomButtonIcon';
 import CustomDropdownMenu from '../common/CustomDropdownMenu';
-import useAppStore from '@/store/appStore';
 import useLogout from '@/hooks/useLogout';
+import useAppNavigate from '@/hooks/useAppNavigate';
 
 const Nav = () => {
 	const { pathname } = useLocation();
+	const navigate = useAppNavigate();
 	const logout = useLogout();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-	const authenticatedUser = useAppStore(state => state.authenticatedUser);
-	const accessToken = useAppStore(state => state.accessToken);
-	console.log('authenticatedUser & token', authenticatedUser, accessToken);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -27,8 +24,16 @@ const Nav = () => {
 	}, [pathname]);
 
 	const handleNavBarMenuAction = (key: Key) => {
-		if (key === 'logout') {
-			logout();
+		switch (key) {
+			case 'logout':
+				logout();
+				break;
+			case 'adminPanel':
+				navigate.toAdminPanel();
+				break;
+
+			default:
+				break;
 		}
 	};
 

@@ -22,7 +22,8 @@ const useAppNavigate = () => {
 			toBlogs: (option?: NavigateOptions) => navigate(APP.BLOG.BLOG_URL, option),
 			toBlogView: (id: string, option?: NavigateOptions) => navigate(APP.BLOG.BLOG_VIEW(id), option),
 			toAbout: (option?: NavigateOptions) => navigate(APP.ABOUT, option),
-			toContact: (option?: NavigateOptions) => navigate(APP.CONTACT, option)
+			toContact: (option?: NavigateOptions) => navigate(APP.CONTACT, option),
+			toAdminPanel: (option?: NavigateOptions) => navigate(APP.ADMIN, option)
 		}),
 		[navigate, ERROR, ROOT, APP]
 	);

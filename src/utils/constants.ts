@@ -14,7 +14,8 @@ export const APP_ROUTES = {
 			BLOG_VIEW: (id: string) => `/app/blog/view/${id}`
 		},
 		ABOUT: '/app/about',
-		CONTACT: '/app/contact'
+		CONTACT: '/app/contact',
+		ADMIN: '/app/admin-panel'
 	}
 } as const;
 

@@ -25,10 +25,12 @@ const AxiosService = axios.create({
 });
 
 export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-	const setIsAppLoading = useAppStore(state => state.setIsAppLoading);
 	const token = Cookies.get('refreshToken');
+	// will use later
+	// const verifyLogin = useVerifyLogin();
 	// const accessToken = useAppStore(state => state.accessToken);
 	// const isUserLoggedIn = useAppStore(state => state.isUserLoggedIn);
+	const setIsAppLoading = useAppStore(state => state.setIsAppLoading);
 
 	AxiosService.defaults.headers.common.Accept = 'application/json';
 	AxiosService.defaults.headers.common['Content-Type'] = 'application/json';
@@ -37,10 +39,19 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 		AxiosService.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 		// Will use later
-		// if (!isUserLoggedIn && !accessToken) {
+		// console.log('accessToken2', accessToken, isUserLoggedIn);
+		// debugger;
+		// // Will use later
+		// if (isUserLoggedIn && accessToken) {
+		// 	console.log('accessToken3', accessToken);
 		// 	AxiosService.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+		// 	return;
 		// }
-		// console.log('accessToken not found', accessToken);
+		// const newAccessToken = await verifyLogin();
+		// if (newAccessToken) {
+		// 	AxiosService.defaults.headers.common.Authorization = `Bearer ${newAccessToken}`;
+		// 	console.log('Token response false');
+		// }
 	}, [token]);
 
 	const get = useCallback(

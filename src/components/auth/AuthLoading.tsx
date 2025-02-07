@@ -3,6 +3,19 @@ import useAppStore from '@/store/appStore';
 
 const AuthLoading: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const showApiLoader = useAppStore(state => state.isAppLoading);
+	// const isUserLoggedIn = useAppStore(state => state.isUserLoggedIn);
+	// const verifyLogin = useVerifyLogin();
+
+	// const checkIsAuthenticated = useCallback(async () => {
+	// 	await verifyLogin();
+	// }, [verifyLogin]);
+
+	// useEffect(() => {
+	// 	console.log('isUserLoggedIn2', isUserLoggedIn);
+	// 	if (!isUserLoggedIn) {
+	// 		checkIsAuthenticated();
+	// 	}
+	// }, [isUserLoggedIn, checkIsAuthenticated]);
 
 	return (
 		<div>
