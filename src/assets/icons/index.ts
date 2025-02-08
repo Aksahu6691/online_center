@@ -9,6 +9,7 @@ import SuccessIcon from './successIcon.svg';
 import WarningIcon from './warningIcon.svg';
 import MenuIcon from './menuIcon.svg';
 import CloseIcon from './closeIcon.svg';
+import MoreDots from './moreDots.svg';
 
 export {
 	NotFoundIcon,
@@ -21,5 +22,6 @@ export {
 	SuccessIcon,
 	WarningIcon,
 	MenuIcon,
-	CloseIcon
+	CloseIcon,
+	MoreDots
 };

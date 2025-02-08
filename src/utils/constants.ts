@@ -1,4 +1,4 @@
-import { ICustomDropdownMenuItem, ResponsiveConfig } from '@/types/common.type';
+import { ICustomDropdownMenuItem, IServicesTableCols, ResponsiveConfig } from '@/types/common.type';
 
 export const APP_ROUTES = {
 	ROOT: '/',
@@ -76,4 +76,26 @@ export const navBarMenuItems: ICustomDropdownMenuItem[] = [
 		title: 'Logout',
 		color: 'danger'
 	}
+];
+
+export const ServicesTableCols = {
+	SERIAL_NUMBER_ID: 'id',
+	IMAGE: 'image',
+	TITLE: 'title',
+	DESCRIPTION: 'description',
+	ACTIONS: 'actions'
+};
+
+export const commonDropDownMenuKey = {
+	view: 'view',
+	edit: 'edit',
+	delete: 'delete'
+};
+
+export const SERVICES_TABLE_COLUMNS: IServicesTableCols[] = [
+	{ name: 'S.No', uid: 'id' },
+	{ name: 'Service Image', uid: 'image' },
+	{ name: 'Service Name', uid: 'serviceName' },
+	{ name: 'Description', uid: 'description' },
+	{ name: '', uid: 'actions' }
 ];
