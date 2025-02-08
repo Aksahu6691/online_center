@@ -17,8 +17,8 @@ const TeamMemberSection = () => {
 	const fetchUser = useCallback(async () => {
 		const { response, success } = await getUser();
 		if (success) {
-			setCurrentTeamMember(response?.data?.[0] ?? null);
-			setTeamMemberData(response?.data || []);
+			setCurrentTeamMember(response?.[0] ?? null);
+			setTeamMemberData(response || []);
 		}
 	}, [getUser]);
 
