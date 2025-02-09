@@ -49,8 +49,6 @@ export interface IGlobalUserDetails {
 	status: string;
 }
 
-// export type IFormTitles = 'SERVICES' | 'TESTIMONIAL' | 'USERS' | 'BLOG';
-
 export interface IServicesTableCols {
 	name: string;
 	uid: string;

@@ -11,11 +11,13 @@ import CustomButtonIcon from '../common/CustomButtonIcon';
 import CustomDropdownMenu from '../common/CustomDropdownMenu';
 import useLogout from '@/hooks/useLogout';
 import useAppNavigate from '@/hooks/useAppNavigate';
+import useAppStore from '@/store/appStore';
 
 const Nav = () => {
 	const { pathname } = useLocation();
 	const navigate = useAppNavigate();
 	const logout = useLogout();
+	const authenticatedUser = useAppStore(state => state.authenticatedUser);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	useEffect(() => {
@@ -76,7 +78,7 @@ const Nav = () => {
 						<CustomAvatar
 							src=""
 							showFallback={true}
-							name="User Name"
+							name={authenticatedUser?.name ?? 'User Name'}
 							className={{ name: 'text-white', base: 'cursor-pointer' }}
 						/>
 					</div>
@@ -103,7 +105,7 @@ const Nav = () => {
 						<CustomAvatar
 							src=""
 							showFallback={true}
-							name="User Name"
+							name={authenticatedUser?.name ?? 'User Name'}
 							className={{ name: 'text-white min-w-20', base: 'cursor-pointer' }}
 						/>
 					</div>
