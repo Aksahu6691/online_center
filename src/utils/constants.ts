@@ -1,4 +1,4 @@
-import { ICustomDropdownMenuItem, IServicesTableCols, ResponsiveConfig } from '@/types/common.type';
+import { ICustomDropdownMenuItem, ICustomTableCols, ResponsiveConfig } from '@/types/common.type';
 
 export const APP_ROUTES = {
 	ROOT: '/',
@@ -78,6 +78,12 @@ export const navBarMenuItems: ICustomDropdownMenuItem[] = [
 	}
 ];
 
+export const commonDropDownMenuKey = {
+	view: 'view',
+	edit: 'edit',
+	delete: 'delete'
+};
+
 export const ServicesTableCols = {
 	SERIAL_NUMBER_ID: 'id',
 	IMAGE: 'image',
@@ -86,16 +92,72 @@ export const ServicesTableCols = {
 	ACTIONS: 'actions'
 };
 
-export const commonDropDownMenuKey = {
-	view: 'view',
-	edit: 'edit',
-	delete: 'delete'
+export const TestimonialTableCols = {
+	SERIAL_NUMBER_ID: 'id',
+	NAME: 'name',
+	DESIGNATION: 'designation',
+	MESSAGE: 'message',
+	ACTIONS: 'actions'
 };
 
-export const SERVICES_TABLE_COLUMNS: IServicesTableCols[] = [
+export const UserTableCols = {
+	SERIAL_NUMBER_ID: 'id',
+	PHOTO: 'photo',
+	NAME: 'name',
+	MOBILE: 'mobile',
+	EMAIL: 'email',
+	ROLE: 'role',
+	DESIGNATION: 'designation',
+	DESCRIPTION: 'description',
+	STATUS: 'status',
+	ACTIONS: 'actions'
+};
+
+export const BlogTableCols = {
+	SERIAL_NUMBER_ID: 'id',
+	IMAGE: 'image',
+	TITLE: 'title',
+	DESCRIPTION: 'description',
+	UPLOADED_DATE: 'uploadedDate',
+	AUTHOR: 'author',
+	ACTIONS: 'actions'
+};
+
+export const SERVICES_TABLE_COLUMNS: ICustomTableCols[] = [
 	{ name: 'S.No', uid: 'id' },
 	{ name: 'Service Image', uid: 'image' },
 	{ name: 'Service Name', uid: 'serviceName' },
 	{ name: 'Description', uid: 'description' },
-	{ name: '', uid: 'actions' }
+	{ name: 'Action', uid: 'actions' }
+];
+
+export const TESTIMONIAL_TABLE_COLUMNS: ICustomTableCols[] = [
+	{ name: 'S.No', uid: 'id' },
+	{ name: 'Name', uid: 'name' },
+	{ name: 'Designation', uid: 'designation' },
+	{ name: 'Message', uid: 'message' },
+	{ name: 'Action', uid: 'actions' }
+];
+
+export const USER_TABLE_COLUMNS: ICustomTableCols[] = [
+	{ name: 'S.No', uid: 'id' },
+	{ name: 'Photo', uid: 'photo' },
+	{ name: 'Name', uid: 'name' },
+	{ name: 'Mobile', uid: 'mobile' },
+	{ name: 'Email', uid: 'email' },
+	{ name: 'Role', uid: 'role' },
+	{ name: 'Designation', uid: 'designation' },
+	{ name: 'Description', uid: 'description' },
+	{ name: 'Status', uid: 'status' },
+	{ name: 'Action', uid: 'actions' }
+];
+
+export const BLOG_TABLE_COLUMNS: ICustomTableCols[] = [
+	{ name: 'S.No', uid: 'id' },
+	{ name: 'Image', uid: 'image' },
+	{ name: 'Title', uid: 'title' },
+	{ name: 'Description', uid: 'description' },
+	{ name: 'Uploaded Date', uid: 'uploadedDate' },
+	{ name: 'Author', uid: 'author' },
+	{ name: 'Action', uid: 'actions' }
 ];

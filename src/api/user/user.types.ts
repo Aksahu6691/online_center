@@ -1,5 +1,5 @@
 export interface IUserResponse {
-	id: number;
+	id: string;
 	name: string;
 	mobile: string;
 	email: string;
@@ -7,5 +7,5 @@ export interface IUserResponse {
 	role: string;
 	designation: string;
 	description: string;
-	status: string;
+	status: boolean;
 }

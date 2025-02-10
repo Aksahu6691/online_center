@@ -1,12 +1,4 @@
-import {
-	BookLightImage,
-	BookOpenImage,
-	TeamMember01Image,
-	TeamMember02Image,
-	TeamMember03Image,
-	TeamMember04Image,
-	TeamMember05Image
-} from '@/assets/images';
+import { BookLightImage, BookOpenImage } from '@/assets/images';
 import { ResponsiveConfig } from '@/types/common.type';
 
 export const users = [
@@ -328,39 +320,52 @@ export const services = [
 
 export const testimonials = [
 	{
-		id: '1',
+		id: 'd7dd5e3b-f1d9-4eb6-95a4-9668eb3fe8fa',
+		name: 'Akash',
+		designation: 'Software Engineer',
+		message:
+			'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias minus aspernatur ut expedita, veniam blanditiis tenetur atque praesentium numquam architecto tempore. Voluptates maiores hic commodi, ullam eius illum dolor voluptatum!'
+	},
+	{
+		id: '9355263a-a00e-49d3-b8db-d8d7c1947107',
 		name: 'Amit Sharma',
 		designation: 'Business Owner',
-		description:
+		message:
 			'The services provided here are outstanding! The staff is very helpful, and the process is smooth. Highly recommended for all CSC services.'
 	},
 	{
-		id: '2',
+		id: '939f98b5-fc15-4a99-834a-e295649b0e86',
 		name: 'Priya Verma',
 		designation: 'Freelancer',
-		description:
+		message:
 			'Quick and hassle-free service! I got my PAN card and Aadhar update done without any issues. Very professional and efficient team.'
 	},
 	{
-		id: '3',
+		id: '308e6b9a-e133-45db-8301-24fe3650039d',
 		name: 'Rahul Mehta',
 		designation: 'Software Engineer',
-		description:
+		message:
 			'A great place for digital services. I used their banking and bill payment services, and everything was handled efficiently.'
 	},
 	{
-		id: '4',
+		id: '8a9d94fd-b8cd-493b-87da-420128881768',
 		name: 'Sneha Kapoor',
 		designation: 'Student',
-		description:
+		message:
 			'I had an amazing experience with their online application services. They guided me throughout the process. Truly a lifesaver!'
 	},
 	{
-		id: '5',
+		id: '8460866a-75f6-4067-af1a-8c9259507001',
 		name: 'Vikram Singh',
 		designation: 'Shop Owner',
-		description:
+		message:
 			'Very fast and reliable service. The team is knowledgeable and helped me with my GST registration smoothly.'
+	},
+	{
+		id: 'bbeaa2e9-2e07-4782-97ee-88e4b9d8aa02',
+		name: 'Test User',
+		designation: 'Test designation',
+		message: 'Tset description messages'
 	}
 ];
 
@@ -388,109 +393,132 @@ export const aboutUsCardData = [
 
 export const teamMembers = [
 	{
-		id: '1',
-		photo: TeamMember01Image,
+		id: 'c1344d5d-4c99-426f-8b02-5c4fc2c6151b',
+		name: 'Akash Sahu',
+		mobile: '7389756691',
+		email: 'ak@gmail.com',
+		photo: 'http://localhost:8080/images/photo_1738825707481-351590713.jpg',
+		role: 'admin',
+		designation: 'Software Engineer',
+		description:
+			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit consequuntur odio sunt voluptas nam ea nulla veniam amet voluptate excepturi optio, maiores porro eum cupiditate illum nesciunt! Non, labore fugiat?',
+		status: true
+	},
+	{
+		id: 'df92a2e6-9d9c-4bf9-a1a3-42560e296682',
 		name: 'Ruby Foster',
+		mobile: '1234567890',
+		email: 'ruby@gmail.com',
+		photo: 'http://localhost:8080/images/photo_1738750031461-547724879.jpg',
+		role: 'user',
 		designation: 'CEO-FOUNDER',
 		description:
-			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
+			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.',
+		status: true
 	},
 	{
-		id: '2',
-		photo: TeamMember02Image,
+		id: 'def83462-9f58-45eb-8852-726a40a4c20f',
 		name: 'Luis Oconnell',
+		mobile: '1234567891',
+		email: 'luis@gmail.com',
+		photo: 'http://localhost:8080/images/photo_1738750080130-120159011.jpg',
+		role: 'user',
 		designation: 'CEO-FOUNDER',
 		description:
-			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
+			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.',
+		status: true
 	},
 	{
-		id: '3',
-		photo: TeamMember03Image,
+		id: 'e540907d-9591-4387-bfbb-58ac05bf746d',
 		name: 'Jackie Riggs',
+		mobile: '1234567892',
+		email: 'jackie@gmail.com',
+		photo: 'http://localhost:8080/images/photo_1738750112869-471651663.jpg',
+		role: 'user',
 		designation: 'CEO-FOUNDER',
 		description:
-			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
+			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.',
+		status: true
 	},
 	{
-		id: '4',
-		photo: TeamMember04Image,
+		id: 'c8b38feb-09f5-40e7-bf65-e874e909d3b2',
 		name: 'Alfred Small',
+		mobile: '1234567893',
+		email: 'alfred@gmail.com',
+		photo: 'http://localhost:8080/images/photo_1738750141375-147635015.jpg',
+		role: 'user',
 		designation: 'CEO-FOUNDER',
 		description:
-			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
+			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.',
+		status: true
 	},
 	{
-		id: '5',
-		photo: TeamMember05Image,
+		id: '20805bc2-5ac1-4f13-b0fd-d57d296d7c6b',
 		name: 'Denis Mitchel',
+		mobile: '1234567894',
+		email: 'denis@gmail.com',
+		photo: 'http://localhost:8080/images/photo_1738750168214-14276191.jpg',
+		role: 'user',
 		designation: 'CEO-FOUNDER',
 		description:
-			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.'
+			'Quinoa roof party squid prism sustainable letterpress cray hammock tumeric man bun mixtape tofu subway tile cronut. Deep v ennui subway tile organic seitan kogi freegan bicycle rights try-hard green juice probably.',
+		status: true
 	}
 ];
 
 export const blogData = [
 	{
-		id: '1',
-		image:
-			'https://images.ctfassets.net/pdf29us7flmy/g4wvzOMpch3fwcFpC7L7F/e91c20b5c20cc4fab54bc0f85098aa48/Office_Workspaces_person_thinking_about_solution_while_staring_at_desktop_screen_-getty21-.jpg?w=720&q=100&fm=jpg',
+		id: '585d5605-c2f9-4c31-a692-7d9e33224e0a',
+		title: 'Mastering Web Development in 2023',
+		description:
+			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium debitis nulla vel. Quia beatae nostrum delectus et eligendi doloribus assumenda ab ad sed quos, nobis dolorem itaque? Iste, suscipit commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure vitae beatae voluptatum asperiores nulla tenetur quas itaque id, iste quo culpa suscipit magni explicabo maxime, a architecto assumenda molestias. Cumque? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore sunt ea, velit molestiae incidunt atque exercitationem consequuntur pariatur qui voluptates repellat dolorem saepe laudantium voluptas unde id necessitatibus. Veritatis, ratione!',
+		image: 'http://localhost:8080/images/image_1738751376294-266938749.jpeg',
+		uploadedDate: '2025-02-05T10:29:36.301Z',
+		author: null
+	},
+	{
+		id: '745f3a65-479d-48cf-b8b5-63dd42ea949c',
+		title: 'Designing for Accessibility',
+		description:
+			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium debitis nulla vel. Quia beatae nostrum delectus et eligendi doloribus assumenda ab ad sed quos, nobis dolorem itaque? Iste, suscipit commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure vitae beatae voluptatum asperiores nulla tenetur quas itaque id, iste quo culpa suscipit magni explicabo maxime, a architecto assumenda molestias. Cumque? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore sunt ea, velit molestiae incidunt atque exercitationem consequuntur pariatur qui voluptates repellat dolorem saepe laudantium voluptas unde id necessitatibus. Veritatis, ratione!',
+		image: 'http://localhost:8080/images/image_1738751356317-445980133.jpg',
+		uploadedDate: '2025-02-05T10:29:16.321Z',
+		author: null
+	},
+	{
+		id: '4a7e36e8-a515-4f8c-982f-e62f6d5f20b3',
+		title: 'The Future of E-commerce',
+		description:
+			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium debitis nulla vel. Quia beatae nostrum delectus et eligendi doloribus assumenda ab ad sed quos, nobis dolorem itaque? Iste, suscipit commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure vitae beatae voluptatum asperiores nulla tenetur quas itaque id, iste quo culpa suscipit magni explicabo maxime, a architecto assumenda molestias. Cumque? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore sunt ea, velit molestiae incidunt atque exercitationem consequuntur pariatur qui voluptates repellat dolorem saepe laudantium voluptas unde id necessitatibus. Veritatis, ratione!',
+		image: 'http://localhost:8080/images/image_1738751330798-701228972.jpg',
+		uploadedDate: '2025-02-05T10:28:50.801Z',
+		author: null
+	},
+	{
+		id: 'aa58546f-2e87-4fda-b775-0eab0d623362',
+		title: 'Effective Social Media Marketing Strategies',
+		description:
+			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium debitis nulla vel. Quia beatae nostrum delectus et eligendi doloribus assumenda ab ad sed quos, nobis dolorem itaque? Iste, suscipit commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure vitae beatae voluptatum asperiores nulla tenetur quas itaque id, iste quo culpa suscipit magni explicabo maxime, a architecto assumenda molestias. Cumque? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore sunt ea, velit molestiae incidunt atque exercitationem consequuntur pariatur qui voluptates repellat dolorem saepe laudantium voluptas unde id necessitatibus. Veritatis, ratione!',
+		image: 'http://localhost:8080/images/image_1738751282270-260789412.jpeg',
+		uploadedDate: '2025-02-05T10:28:02.283Z',
+		author: null
+	},
+	{
+		id: '0f6f28b2-e70f-438b-8fe4-46fe8b863fcf',
+		title: 'Understanding the Basics of SEO',
+		description:
+			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium debitis nulla vel. Quia beatae nostrum delectus et eligendi doloribus assumenda ab ad sed quos, nobis dolorem itaque? Iste, suscipit commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure vitae beatae voluptatum asperiores nulla tenetur quas itaque id, iste quo culpa suscipit magni explicabo maxime, a architecto assumenda molestias. Cumque? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore sunt ea, velit molestiae incidunt atque exercitationem consequuntur pariatur qui voluptates repellat dolorem saepe laudantium voluptas unde id necessitatibus. Veritatis, ratione!',
+		image: 'http://localhost:8080/images/image_1738751263190-23814128.jpg',
+		uploadedDate: '2025-02-05T10:27:43.198Z',
+		author: null
+	},
+	{
+		id: 'c914b938-0cce-4af8-a4d1-893484bea7d1',
 		title: 'Top 5 Tools for Web Designers',
 		description:
 			'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium debitis nulla vel. Quia beatae nostrum delectus et eligendi doloribus assumenda ab ad sed quos, nobis dolorem itaque? Iste, suscipit commodi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure vitae beatae voluptatum asperiores nulla tenetur quas itaque id, iste quo culpa suscipit magni explicabo maxime, a architecto assumenda molestias. Cumque? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore sunt ea, velit molestiae incidunt atque exercitationem consequuntur pariatur qui voluptates repellat dolorem saepe laudantium voluptas unde id necessitatibus. Veritatis, ratione!',
-		author: 'Ruby Foster',
-		authorImage: TeamMember01Image,
-		uploadedDate: 'May 25, 2023'
-	},
-	{
-		id: '2',
-		image:
-			'https://cdn.prod.website-files.com/6009ec8cda7f305645c9d91b/60108d20fe7e067d75ce4225_6002086f72b72771ff01e64e_N4bt2VcrF3fpmms28jUwlRD66cbY0iLBHsTO-FeHRNwRM38pRkuWxMLFIUk8xzr_s1vd_D_EFNJ4D3H3Zk-kN9ogJ1aRB8-LWqFg1FXNtVpu4pDASaTo2-HWv2KsGqrT0ZJKAT_H.png',
-		title: 'Understanding the Basics of SEO',
-		description:
-			"Learn about the fundamental principles of SEO and how they can help you improve your website's visibility on search engines. This guide covers keyword research, on-page optimization, and link building strategies.",
-		author: 'Luis Oconnell',
-		authorImage: TeamMember02Image,
-		uploadedDate: 'June 10, 2023'
-	},
-	{
-		id: '3',
-		image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV5zYT00pwrLq4U_J4A8bn6dX_fhSjnUDX5g&s',
-		title: 'Effective Social Media Marketing Strategies',
-		description:
-			'Explore the best practices for creating engaging content and building a strong social media presence. Discover how to leverage platforms like Facebook, Instagram, and Twitter to connect with your audience.',
-		author: 'Jackie Riggs',
-		authorImage: TeamMember03Image,
-		uploadedDate: 'July 5, 2023'
-	},
-	{
-		id: '4',
-		image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8HUFy9G_uxD7dhKG5Vfu3QZkfWT5WJoH4Ig&s',
-		title: 'The Future of E-commerce',
-		description:
-			'Stay ahead of the curve by learning about the latest trends and technologies shaping the future of e-commerce. From AI-driven personalization to mobile-first strategies, this article covers it all.',
-		author: 'Alfred Small',
-		authorImage: TeamMember04Image,
-		uploadedDate: 'August 15, 2023'
-	},
-	{
-		id: '5',
-		image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5LP8jn4hFTTyGQYM-mlf_Z0IfmOyDcq2z4A&s',
-		title: 'Designing for Accessibility',
-		description:
-			'Ensure your website is accessible to everyone by following these design principles. Learn how to create inclusive digital experiences that cater to users with disabilities.',
-		author: 'Denis Mitchel',
-		authorImage: TeamMember05Image,
-		uploadedDate: 'September 1, 2023'
-	},
-	{
-		id: '6',
-		image:
-			'https://media.istockphoto.com/id/183760144/photo/corporate-modern-office.jpg?s=612x612&w=is&k=20&c=TFUfwR78pVCQh70lrRNLIUgsUVYm-YNs_mxtf-h8DGE=',
-		title: 'Mastering Web Development in 2023',
-		description:
-			"A comprehensive guide to mastering web development in 2023, covering the latest tools, frameworks, and techniques. Whether you're a beginner or an experienced developer, this article has something for you.",
-		author: 'Ruby Foster',
-		authorImage: TeamMember01Image,
-		uploadedDate: 'October 20, 2023'
+		image: 'http://localhost:8080/images/image_1738751211806-375634070.jpg',
+		uploadedDate: '2025-02-05T10:26:51.827Z',
+		author: null
 	}
 ];

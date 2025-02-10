@@ -1,27 +1,27 @@
 import React from 'react';
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from '@nextui-org/react';
-import CustomAvatar from '../common/CustomAvatar';
+import CustomAvatar from '../../common/CustomAvatar';
 import { MoreDots } from '@/assets/icons';
-import { ICustomDropdownMenuItem, IServicesTableCols } from '@/types/common.type';
-import CustomEllipsisContainer from '../common/CustomEllipsisContainer';
-import CustomDropdownMenu from '../common/CustomDropdownMenu';
-import CustomCard from '../common/CustomCard';
-import { IServiceResponseData } from '@/api/services/services.types';
-import { commonDropDownMenuKey, ServicesTableCols } from '@/utils/constants';
+import { ICustomDropdownMenuItem, ICustomTableCols } from '@/types/common.type';
+import CustomEllipsisContainer from '../../common/CustomEllipsisContainer';
+import CustomDropdownMenu from '../../common/CustomDropdownMenu';
+import CustomCard from '../../common/CustomCard';
+import { commonDropDownMenuKey, BlogTableCols } from '@/utils/constants';
+import { IBlogResponseData } from '@/api/blog/blog.types';
 
 type ContentPlacementType = 'inside' | 'outside';
 interface ICustomTable {
-	tableColumns: IServicesTableCols[] | [];
-	tableRows: IServiceResponseData[] | [];
+	tableColumns: ICustomTableCols[] | [];
+	tableRows: IBlogResponseData[] | [];
 	TopContent?: React.ReactNode;
 	topContentPlacement?: ContentPlacementType;
 	BottomContent?: React.ReactNode;
 	bottomContentPlacement?: ContentPlacementType;
 	emptyContent?: string | React.ReactNode;
-	handleRowDropdownPress: (selectedDropdownKey: React.Key, selectedUser: IServiceResponseData) => void;
+	handleRowDropdownPress: (selectedDropdownKey: React.Key, selectedBlog: IBlogResponseData) => void;
 }
 
-const ServicesTable = (props: ICustomTable) => {
+const BlogsTables = (props: ICustomTable) => {
 	const {
 		tableColumns = [],
 		tableRows = [],
@@ -33,7 +33,7 @@ const ServicesTable = (props: ICustomTable) => {
 		handleRowDropdownPress
 	} = props;
 
-	const renderCell = (row: IServiceResponseData, rowIndex: number, columnKey: React.Key) => {
+	const renderCell = (row: IBlogResponseData, rowIndex: number, columnKey: React.Key) => {
 		const accountTableActionsItems: ICustomDropdownMenuItem[] = [
 			{ key: commonDropDownMenuKey.view, title: 'View' },
 			{ key: commonDropDownMenuKey.edit, title: 'Edit' },
@@ -41,9 +41,9 @@ const ServicesTable = (props: ICustomTable) => {
 		];
 
 		switch (columnKey) {
-			case ServicesTableCols.SERIAL_NUMBER_ID:
+			case BlogTableCols.SERIAL_NUMBER_ID:
 				return <div className="font-semibold">{rowIndex + 1}.</div>;
-			case ServicesTableCols.IMAGE:
+			case BlogTableCols.IMAGE:
 				return (
 					<CustomAvatar
 						src={row.image || ''}
@@ -54,12 +54,16 @@ const ServicesTable = (props: ICustomTable) => {
 						}}
 					/>
 				);
-			case ServicesTableCols.TITLE:
+			case BlogTableCols.TITLE:
 				return <CustomEllipsisContainer text={row.title} />;
-			case ServicesTableCols.DESCRIPTION:
+			case BlogTableCols.DESCRIPTION:
 				return <CustomEllipsisContainer text={row.description} />;
+			case BlogTableCols.UPLOADED_DATE:
+				return <CustomEllipsisContainer text={row.uploadedDate} />;
+			case BlogTableCols.AUTHOR:
+				return <CustomEllipsisContainer text={row.author?.name} />;
 
-			case ServicesTableCols.ACTIONS:
+			case BlogTableCols.ACTIONS:
 				return (
 					<CustomDropdownMenu
 						showArrow={false}
@@ -76,7 +80,7 @@ const ServicesTable = (props: ICustomTable) => {
 	return (
 		<CustomCard className="my-4">
 			<Table
-				aria-label="Account table"
+				aria-label="Service Table"
 				topContent={TopContent}
 				topContentPlacement={topContentPlacement}
 				bottomContent={BottomContent}
@@ -114,4 +118,4 @@ const ServicesTable = (props: ICustomTable) => {
 		</CustomCard>
 	);
 };
-export default ServicesTable;
+export default BlogsTables;

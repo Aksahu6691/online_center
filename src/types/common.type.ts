@@ -49,7 +49,7 @@ export interface IGlobalUserDetails {
 	status: string;
 }
 
-export interface IServicesTableCols {
+export interface ICustomTableCols {
 	name: string;
 	uid: string;
 }
