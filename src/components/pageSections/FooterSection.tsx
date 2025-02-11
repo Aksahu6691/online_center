@@ -8,8 +8,10 @@ import SuccessModal from '../modals/SuccessModal';
 import { IContactFormSchema } from '@/types/schema.type';
 
 const FooterSection = () => {
+	// INFO: Local States
 	const [isSuccessModalVisible, setIsSuccessModalVisible] = useState(false);
 
+	// INFO: Handlers
 	const handelSubmit = (values: IContactFormSchema) => {
 		console.log('values', values);
 		setIsSuccessModalVisible(true);
@@ -18,6 +20,7 @@ const FooterSection = () => {
 		}, 3000);
 	};
 
+	// INFO: Render Functions
 	const renderContactDetail = () => {
 		return (
 			<div className="relative pb-28">

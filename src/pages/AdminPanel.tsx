@@ -1,24 +1,28 @@
 import { useState } from 'react';
 import CustomButton from '@/components/common/CustomButton';
 import ScreenWrapper from '@/components/ScreenWrapper';
-import Services from '@/components/admin/services';
 import Testimonials from '@/components/admin/Testimonials';
 import Users from '@/components/admin/Users';
 import Blogs from '@/components/admin/Blogs';
 import { FormTitlesEnum } from '@/types/enum';
-
-const COMPONENT_MAP = {
-	[FormTitlesEnum.SERVICES]: Services,
-	[FormTitlesEnum.TESTIMONIALS]: Testimonials,
-	[FormTitlesEnum.USERS]: Users,
-	[FormTitlesEnum.BLOG]: Blogs
-};
+import Services from '@/components/admin/Services';
 
 const AdminPanel = () => {
+	// INFO: Constant
+	const COMPONENT_MAP = {
+		[FormTitlesEnum.SERVICES]: Services,
+		[FormTitlesEnum.TESTIMONIALS]: Testimonials,
+		[FormTitlesEnum.USERS]: Users,
+		[FormTitlesEnum.BLOG]: Blogs
+	};
+
+	// INFO: Local States
 	const [activeBtn, setActiveBtn] = useState<FormTitlesEnum>(FormTitlesEnum.SERVICES);
 
+	// INFO: Handlers
 	const ActiveComponent = COMPONENT_MAP[activeBtn];
 
+	// INFO: Render Functions
 	const renderButtonTabs = () => {
 		return Object.values(FormTitlesEnum).map(title => (
 			<CustomButton

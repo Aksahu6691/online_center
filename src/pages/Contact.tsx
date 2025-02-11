@@ -4,6 +4,7 @@ import ScreenWrapper from '@/components/ScreenWrapper';
 import { statusBarData } from '@/helpers/data';
 
 const Contact = () => {
+	// INFO: Render Functions
 	const renderLeftContent = () => {
 		return (
 			<div>

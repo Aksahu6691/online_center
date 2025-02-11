@@ -8,11 +8,14 @@ import { ITestimonialResponseData } from '@/api/testimonial/testimonial.types';
 import TestimonialCardSkeleton from '@/pages/skeletons/TestimonialCardSkeleton';
 
 const TestimonialSection = () => {
+	// INFO: APIs
 	const { getTestimonials } = useTestimonialApi();
 
+	// INFO: Local States
 	const [testimonial, setTestimonial] = useState<ITestimonialResponseData[]>([]);
 	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
+	// INFO: Effects
 	const fetchTestimonial = useCallback(async () => {
 		setIsSkeletonVisible(true);
 		const { response, success } = await getTestimonials();
@@ -26,6 +29,7 @@ const TestimonialSection = () => {
 		fetchTestimonial();
 	}, [fetchTestimonial]);
 
+	// INFO: Render Functions
 	const renderTestimonialCard = () => {
 		if (isSkeletonVisible) {
 			return [...Array(8)].map((_, index) => <TestimonialCardSkeleton key={index} />);

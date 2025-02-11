@@ -7,11 +7,14 @@ import { IServiceResponseData } from '@/api/services/services.types';
 import ServicesHomePageSkeleton from '@/pages/skeletons/ServicesHomePageSkeleton';
 
 const PopularServices = () => {
+	// INFO: APIs
 	const { getServices } = useServicesApi();
 
+	// INFO: Local States
 	const [servicesData, setServicesData] = useState<IServiceResponseData[]>([]);
 	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
+	// INFO: Effects
 	const fetchServices = useCallback(async () => {
 		setIsSkeletonVisible(true);
 		const { response, success } = await getServices();
@@ -25,6 +28,7 @@ const PopularServices = () => {
 		fetchServices();
 	}, [fetchServices]);
 
+	// INFO: Render Functions
 	const renderServiceCard = () => {
 		if (isSkeletonVisible) {
 			return [...Array(8)].map((_, index) => <ServicesHomePageSkeleton key={index} />);

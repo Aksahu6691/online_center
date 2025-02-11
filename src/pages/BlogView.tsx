@@ -8,14 +8,21 @@ import { IBlogResponseData } from '@/api/blog/blog.types';
 import RecentBlogCardSkeleton from './skeletons/RecentBlogCardSkeleton';
 
 const BlogView = () => {
+	// INFO: Constant
 	const { blogId } = useParams();
-	const navigate = useAppNavigate();
+
+	// INFO: APIs
 	const { getBlogs, getBlogById } = useBlogApi();
 
+	// INFO: Global States
+	const navigate = useAppNavigate();
+
+	// INFO: Local States
 	const [blogData, setBlogData] = useState<IBlogResponseData | null>(null);
 	const [resentBlogs, setResentBlogs] = useState<IBlogResponseData[]>([]);
 	const [isRecentBlogsSkeletonVisible, setIsRecentBlogsSkeletonVisible] = useState(false);
 
+	// INFO: Effects
 	const fetchBlog = useCallback(async () => {
 		if (!blogId) return;
 		const { response, success } = await getBlogById(blogId);
@@ -38,6 +45,7 @@ const BlogView = () => {
 		fetchResentBlogs();
 	}, [fetchBlog, fetchResentBlogs]);
 
+	// INFO: Render Functions
 	const renderBlogCards = () => {
 		if (isRecentBlogsSkeletonVisible) {
 			return <RecentBlogCardSkeleton count={2} />;

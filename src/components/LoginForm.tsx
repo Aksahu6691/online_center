@@ -11,15 +11,20 @@ import useAuthApi from '@/api/auth/useAuthApi';
 import showToast from '@/utils/showToast';
 
 const LoginForm = () => {
-	const navigation = useAppNavigate();
-	const { loginUser } = useAuthApi();
-	const { setIsAppLoading, setAuthenticatedUser, setIsUserLoggedIn, setAccessToken } = useAppStore();
-
+	// INFO: Constant
 	const initialValues: ILoginFormSchema = {
 		email: '',
 		password: ''
 	};
 
+	// INFO: APIs
+	const { loginUser } = useAuthApi();
+
+	// INFO: Global States
+	const navigation = useAppNavigate();
+	const { setIsAppLoading, setAuthenticatedUser, setIsUserLoggedIn, setAccessToken } = useAppStore();
+
+	// INFO: Handlers
 	const handelSubmitValue = async (values: ILoginFormSchema) => {
 		setIsAppLoading(true);
 		const { response, success, errorMsg } = await loginUser(values);

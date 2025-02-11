@@ -9,11 +9,17 @@ import { IUserResponse } from '@/api/user/user.types';
 import { isArrayEmpty } from '@/utils/utils';
 
 const TeamMemberSection = () => {
-	const navigation = useAppNavigate();
+	// INFO: APIs
 	const { getUser } = useUserApi();
+
+	// INFO: Global States
+	const navigation = useAppNavigate();
+
+	// INFO: Local States
 	const [teamMemberData, setTeamMemberData] = useState<IUserResponse[]>([]);
 	const [currentTeamMember, setCurrentTeamMember] = useState<IUserResponse | null>(null);
 
+	// INFO: Effects
 	const fetchUser = useCallback(async () => {
 		const { response, success } = await getUser();
 		if (success) {
@@ -26,6 +32,7 @@ const TeamMemberSection = () => {
 		fetchUser();
 	}, [fetchUser]);
 
+	// INFO: Render Functions
 	const renderTeamMemberCard = () => {
 		if (isArrayEmpty(teamMemberData) || !currentTeamMember) return;
 

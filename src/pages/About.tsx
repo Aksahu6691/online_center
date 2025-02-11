@@ -6,6 +6,7 @@ import ScreenWrapper from '@/components/ScreenWrapper';
 import { aboutUsCardData } from '@/helpers/data';
 
 const About = () => {
+	// INFO: Render Functions
 	const renderAboutUsCard = () => {
 		if (!aboutUsCardData) return;
 		return aboutUsCardData.map(data => (

@@ -7,11 +7,14 @@ import { useCallback, useEffect, useState } from 'react';
 import ServicesCardSkeleton from './skeletons/ServicesCardSkeleton';
 
 const Services = () => {
+	// INFO: APIs
 	const { getServices } = useServicesApi();
 
+	// INFO: Local States
 	const [servicesData, setServicesData] = useState<IServiceResponseData[]>([]);
 	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
+	// INFO: Effects
 	const fetchServices = useCallback(async () => {
 		setIsSkeletonVisible(true);
 		const { response, success } = await getServices();
@@ -25,6 +28,7 @@ const Services = () => {
 		fetchServices();
 	}, [fetchServices]);
 
+	// INFO: Render Functions
 	const renderServiceCard = () => {
 		if (isSkeletonVisible) {
 			return <ServicesCardSkeleton count={8} />;

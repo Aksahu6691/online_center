@@ -8,12 +8,19 @@ import useAppNavigate from '@/hooks/useAppNavigate';
 import BlogCardSkeleton from './skeletons/BlogCardSkeleton';
 
 const Blog = () => {
-	const navigate = useAppNavigate();
+	// INFO: Constant
+
+	// INFO: APIs
 	const { getBlogs } = useBlogApi();
 
+	// INFO: Global States
+	const navigate = useAppNavigate();
+
+	// INFO: Local States
 	const [blogData, setBlogData] = useState<IBlogResponseData[]>([]);
 	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
 
+	// INFO: Effects
 	const fetchBlog = useCallback(async () => {
 		setIsSkeletonVisible(true);
 		const { response, success } = await getBlogs();
@@ -27,6 +34,9 @@ const Blog = () => {
 		fetchBlog();
 	}, [fetchBlog]);
 
+	// INFO: Handlers
+
+	// INFO: Render Functions
 	const renderBlogCards = () => {
 		if (isSkeletonVisible) {
 			return <BlogCardSkeleton count={10} />;
