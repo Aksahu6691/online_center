@@ -13,6 +13,7 @@ export default defineConfig({
 		})
 	],
 	server: {
-		port: 4001
+		port: 4001,
+		allowedHosts: ['localhost', '127.0.0.1', 'fleet-buffalo-advanced.ngrok-free.app']
 	}
 });

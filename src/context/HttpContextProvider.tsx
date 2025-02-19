@@ -36,6 +36,7 @@ export const HttpContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
 	AxiosService.defaults.headers.common['Content-Type'] = 'application/json';
 
 	const attachToken = useCallback(async () => {
+		if (!token) return;
 		AxiosService.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 		// Will use later
