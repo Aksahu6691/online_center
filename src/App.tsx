@@ -5,6 +5,9 @@ import { ToastContainer } from 'react-toastify';
 import Routes from './Routes';
 import AuthLoading from './components/auth/AuthLoading';
 import { HttpContextProvider } from './context/HttpContextProvider';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const App = () => {
 	return (
@@ -12,15 +15,17 @@ const App = () => {
 			<ErrorBoundary fallback={<ErrorPage />}>
 				<HttpContextProvider>
 					<AuthLoading>
-						<Routes />
-						<ToastContainer
-							autoClose={3000}
-							hideProgressBar={false}
-							newestOnTop={true}
-							closeOnClick={true}
-							rtl={false}
-							draggable
-						/>
+						<QueryClientProvider client={queryClient}>
+							<Routes />
+							<ToastContainer
+								autoClose={3000}
+								hideProgressBar={false}
+								newestOnTop={true}
+								closeOnClick={true}
+								rtl={false}
+								draggable
+							/>
+						</QueryClientProvider>
 					</AuthLoading>
 				</HttpContextProvider>
 			</ErrorBoundary>

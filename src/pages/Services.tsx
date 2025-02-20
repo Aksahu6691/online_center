@@ -1,40 +1,44 @@
-import { IServiceResponseData } from '@/api/services/services.types';
 import useServicesApi from '@/api/services/useServicesApi';
 import CustomBreadcrumb from '@/components/common/CustomBreadcrumb';
 import CustomCard from '@/components/common/CustomCard';
 import ScreenWrapper from '@/components/ScreenWrapper';
-import { useCallback, useEffect, useState } from 'react';
 import ServicesCardSkeleton from './skeletons/ServicesCardSkeleton';
+import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
 const Services = () => {
 	// INFO: APIs
 	const { getServices } = useServicesApi();
 
-	// INFO: Local States
-	const [servicesData, setServicesData] = useState<IServiceResponseData[]>([]);
-	const [isSkeletonVisible, setIsSkeletonVisible] = useState(false);
-
-	// INFO: Effects
-	const fetchServices = useCallback(async () => {
-		setIsSkeletonVisible(true);
-		const { response, success } = await getServices();
-		if (success) {
-			setServicesData(response?.services || []);
+	const fetchServices = async () => {
+		try {
+			const { response } = await getServices();
+			return response?.services && response.services.length > 0 ? response.services : [];
+		} catch (error) {
+			console.log(error);
 		}
-		setIsSkeletonVisible(false);
-	}, [getServices]);
+	};
 
-	useEffect(() => {
-		fetchServices();
-	}, [fetchServices]);
+	const { data, isPending, isError, error } = useQuery({
+		queryKey: ['services'],
+		queryFn: fetchServices,
+		gcTime: 1000 * 60 * 5, // 5 minutes
+		staleTime: 1000 * 60 * 1, // 1 minutes
+		refetchInterval: 1000 * 60 * 1, // 1 minutes
+		refetchIntervalInBackground: false,
+		placeholderData: keepPreviousData // keepPreviousData will keep the previous data if the query is not re-fetched
+	});
 
 	// INFO: Render Functions
 	const renderServiceCard = () => {
-		if (isSkeletonVisible) {
+		if (isPending) {
 			return <ServicesCardSkeleton count={8} />;
 		}
 
-		return servicesData?.map(service => (
+		if (isError) {
+			return <p className="text-center text-2xl">{error.message || 'Something went wrong'}</p>;
+		}
+
+		return data?.map(service => (
 			<CustomCard
 				key={service.id}
 				className="h-80 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg p-3 cursor-pointer"

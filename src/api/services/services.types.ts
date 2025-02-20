@@ -13,3 +13,9 @@ export interface IServiceResponse {
 	hasMore: boolean;
 	services: IServiceResponseData[];
 }
+
+export interface IServiceDeleteResponse {
+	success: boolean;
+	message: string;
+	id: string;
+}
